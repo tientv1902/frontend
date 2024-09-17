@@ -9,7 +9,7 @@ function App() {
 
 
   const Button = styled.button({
-    background: 'blue',
+    background: 'red',
   });
 
   return (
