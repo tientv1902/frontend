@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const WrapperCartStyle = styled(Card)`
     width: 200px;
-    margin-top: 20px;
+    
     & img{
         height: 200px;
         width:200px;

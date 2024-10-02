@@ -11,23 +11,24 @@ import ButtonInputSearch from '../ButtonInputSearch/ButtonInputSearch';
 
 const HeaderComponent = () => {
   return (
-    <div>
+    <div >
       <WrapperHeader >
-        <Col span={3}>
+        <Col span={5}>
         <WrapperTextHeader>TVT</WrapperTextHeader>
         </Col>
-        <Col span={15}>
+        <Col span={13}>
         <ButtonInputSearch
               size="large"
+              bordered={false}
               textButton="Search"
               placeholder="Input Search"
               // onSearch={onSearch}
              
             />
         </Col>
-        <Col span={6} style={{display: 'flex', gap: '15px',alignItems:'center'}}>
+        <Col span={6} style={{display: 'flex', gap: '44px',alignItems:'center'}}>
         <WrapperHeaderAccount>
-          <UserOutlined style={{fontSize: '25px'}}/>
+          <UserOutlined style={{fontSize: '30px'}}/>
           <div>
             <WrapperTextHeaderSmall>Đăng nhập / Đăng kí</WrapperTextHeaderSmall>
             <div>
@@ -38,9 +39,10 @@ const HeaderComponent = () => {
         </WrapperHeaderAccount>
         <Badge count={4}>
           <ShoppingCartOutlined style={{fontSize: '25px'}}/>
+          <dWrapperTextHeaderSmall>Cart</dWrapperTextHeaderSmall>
         </Badge>
         
-        <dWrapperTextHeaderSmall>Cart</dWrapperTextHeaderSmall>
+        
         </Col>
       </WrapperHeader>
     </div>

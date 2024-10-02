@@ -33,7 +33,8 @@ const CartComponent = () => {
             <WrapperStyleTextSell> | Da ban 1000+</WrapperStyleTextSell>
      </WrapperReportText>
      <WrapperPriceText>
-        100.000vnd
+      <span style={{marginRight: "8px"}}>100.000vnd</span>
+        
         <WrapperDiscountText>
             -5%
         </WrapperDiscountText>

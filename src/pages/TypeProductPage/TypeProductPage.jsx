@@ -7,7 +7,8 @@ import { WrapperNavbar, WrapperProducts } from "./style";
 const TypeProductPage = () => {
   const onChange = () => {};
   return (
-    <div style={{ padding: "0 120px", background: "#efefef" }}>
+    <div style={{width: '100%', background: '#efefef'}}>
+      <div style={{ width: '1270px', margin: '0 auto' }}>
       <Row
         style={{
           flexWrap: "nowrap",
@@ -37,6 +38,8 @@ const TypeProductPage = () => {
         </Col>
       </Row>
     </div>
+    </div>
+    
   );
 };
 
