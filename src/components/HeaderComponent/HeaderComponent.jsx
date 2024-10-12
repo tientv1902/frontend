@@ -39,7 +39,7 @@ const HeaderComponent = () => {
         </WrapperHeaderAccount>
         <Badge count={4}>
           <ShoppingCartOutlined style={{fontSize: '25px'}}/>
-          <dWrapperTextHeaderSmall>Cart</dWrapperTextHeaderSmall>
+          <WrapperTextHeaderSmall>Cart</WrapperTextHeaderSmall>
         </Badge>
         
         
