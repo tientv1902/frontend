@@ -23,7 +23,14 @@ export const WrapperHeaderAccount = styled.div`
     
 `
 export const WrapperTextHeaderSmall = styled.span`
-    font-size: 12px;
+    font-size: 14px;
     color: black;
     white-space: nowrap;
+`
+
+export const WrapperContentPopup = styled.p`
+    cursor: pointer;
+    &:hover {
+        color: rgb(26, 148, 255);
+    }
 `
