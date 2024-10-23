@@ -5,6 +5,7 @@ import ButtonComponent from '../../components/ButtonComponent/ButtonComponent';
 import { Image } from 'antd';
 import { EyeFilled, EyeInvisibleFilled } from '@ant-design/icons';  
 import imageLogo from '../../assets/images/logo-login.png';
+import imageLogin from '../../assets/images/background-login2.png';
 import { useNavigate } from 'react-router-dom';
 import * as UserService from '../../services/UserService'
 import { useMutationHooks } from '../../hooks/useMutationHook';
@@ -64,11 +65,17 @@ const SignUpPage = () => {
   }
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgb(0, 0, 0, 0.53)', height: '100vh' }}>
-      <div style={{ width: '800px', height: '445px', borderRadius: '6px', background: '#fff', display: 'flex' }}>
+    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgb(0, 0, 0, 0.53)', height: '100vh', 
+    backgroundImage: `url(${imageLogin})`,  
+    backgroundSize: 'cover',              
+    backgroundPosition: 'center',          
+    backgroundRepeat: 'no-repeat',         
+     }}>
+      <div style={{ width: '800px', height: '445px', borderRadius: '40px', background: '#fff', display: 'flex',
+        boxShadow: '0px 4px 20px rgba(0, 0, 0, 1)' }}>
         <WrapperContainerLeft>
-          <h1>Hello</h1>
-          <p>Dang nhap va tao tai khoan</p>
+          <h1>Welcome to TVT Store</h1>
+          <p>Create Account</p>
           <InputForm style={{ marginBottom: '10px' }} 
           placeholder="abc@gmail.com" 
           value={email} onChange={handleOnChangeEmail} />
@@ -128,15 +135,15 @@ const SignUpPage = () => {
               borderRadius: '4px',
               margin: '26px 0 10px'
             }}
-            textButton={'Dang ky'}
+            textButton={'Register'}
             styleTextButton={{ color: '#fff', fontSize: '15px', fontWeight: 700 }}
           ></ButtonComponent>
             </Loading>
-          <p>Ban da co Tai khoan ? <WrapperTextLight onClick={handleNavigateSignIn}>Dang nhap</WrapperTextLight></p>
+          <p>Do you have an Account?<WrapperTextLight onClick={handleNavigateSignIn}>Login</WrapperTextLight></p>
         </WrapperContainerLeft>
-        <WrapperContainerRight>
-          <Image src={imageLogo} preview={false} alt="image-logo" height='445px' width='300px' />
-          
+        <WrapperContainerRight style={{borderRadius: '40px'}}>
+          <Image style={{borderTopRightRadius: '40px', borderBottomRightRadius: '40px'}}
+          src={imageLogo} preview={false} alt="image-logo" height='445px' width='300px' />
         </WrapperContainerRight>
       </div>
     </div>

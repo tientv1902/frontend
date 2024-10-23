@@ -1,26 +1,31 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { routes } from './routes';
 import DefaultComponent from './components/DefaultComponent/DefaultComponent';
 import { isJsonString } from './utils';
 import { jwtDecode } from "jwt-decode";
 import * as UserService from './services/UserService'
-import {useDispatch} from 'react-redux'
-import { resetUser, updateUser } from './redux/slides/userSlide';
+import {useDispatch, useSelector} from 'react-redux'
+import { updateUser } from './redux/slides/userSlide';
+import Loading from './components/LoadingComponent/Loading';
 
 
 function App() {
 
   const dispatch = useDispatch();
+  const [isPending, setIsPending] = useState(false)
+  const user = useSelector((state) => state.user)
 
   useEffect(() => {
+    setIsPending(true)
     const { storageData, decoded } = handleDecoded();
     if (decoded?.id) {
-      handleGetDetailsUser(decoded.id, storageData);
-    } else {
-      dispatch(resetUser()); 
-      localStorage.removeItem('access_token'); 
+      handleGetDetailsUser(decoded?.id, storageData);
+    // } else {
+    //   dispatch(resetUser()); 
+    //   localStorage.removeItem('access_token'); 
     }
+    setIsPending(false)
   }, []);
 
   const handleDecoded = () => {
@@ -50,19 +55,27 @@ function App() {
   const handleGetDetailsUser = async (id, token ) =>{
     const res = await UserService.getDetailsUser(id , token)
     dispatch(updateUser({...res?.data, access_token: token}))
+    
   }
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+      <Loading isPending={isPending}>
       <Router>
         <Routes>
           {routes.map((route) => {
             const Page = route.page;
-            const Layout = route.isShowHeader ? DefaultComponent : React.Fragment;
+            const ischeckAuth = !route.isPrivate || user.isAdmin;
+            const Layout = route.isShowHeader ? (props) => (
+              <DefaultComponent isShowFooter={route.isShowFooter}>
+                {props.children}
+              </DefaultComponent>
+            ) : React.Fragment;
+
             return (
               <Route
                 key={route.path}
-                path={route.path}
+                path={ischeckAuth ? route.path : undefined}
                 element={
                   <Layout>
                     <Page />
@@ -73,6 +86,7 @@ function App() {
           })}
         </Routes>
       </Router>
+      </Loading>
     </div>
   );
 }

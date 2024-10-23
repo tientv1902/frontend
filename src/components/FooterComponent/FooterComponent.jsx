@@ -12,7 +12,6 @@ const FooterComponent = () => {
   return (
     <WrapperFooter>
       <WrapperFooterSection gutter={16}>
-        {/* Company Information */}
         <Col span={6}>
           <WrapperFooterText>
             <strong>About Us</strong>
@@ -23,7 +22,6 @@ const FooterComponent = () => {
           <WrapperFooterLink href="#">Blog</WrapperFooterLink>
         </Col>
 
-        {/* Customer Support */}
         <Col span={6}>
           <WrapperFooterText>
             <strong>Customer Support</strong>
@@ -34,7 +32,6 @@ const FooterComponent = () => {
           <WrapperFooterLink href="#">Shipping Info</WrapperFooterLink>
         </Col>
 
-        {/* Legal Links */}
         <Col span={6}>
           <WrapperFooterText>
             <strong>Legal</strong>
@@ -44,7 +41,6 @@ const FooterComponent = () => {
           <WrapperFooterLink href="#">Cookie Policy</WrapperFooterLink>
         </Col>
 
-        {/* Social Media Links */}
         <Col span={6} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <WrapperFooterText>
             <strong>Follow Us</strong>
@@ -66,9 +62,8 @@ const FooterComponent = () => {
         </Col>
       </WrapperFooterSection>
 
-      {/* Copyright */}
       <div style={{ textAlign: 'center', marginTop: '20px' }}>
-        <WrapperFooterText>© 2024 Your Company. All rights reserved.</WrapperFooterText>
+        <WrapperFooterText>© 2024 TVT. All rights reserved.</WrapperFooterText>
       </div>
     </WrapperFooter>
   );
