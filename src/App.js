@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { routes } from './routes';
 import DefaultComponent from './components/DefaultComponent/DefaultComponent';
@@ -6,7 +6,7 @@ import { isJsonString } from './utils';
 import { jwtDecode } from "jwt-decode";
 import * as UserService from './services/UserService'
 import {useDispatch, useSelector} from 'react-redux'
-import { updateUser } from './redux/slides/userSlide';
+import { resetUser, updateUser } from './redux/slides/userSlide';
 import Loading from './components/LoadingComponent/Loading';
 
 
@@ -16,22 +16,28 @@ function App() {
   const [isPending, setIsPending] = useState(false)
   const user = useSelector((state) => state.user)
 
+  const handleGetDetailsUser = useCallback(async (id, token) => {
+    const res = await UserService.getDetailsUser(id, token);
+    dispatch(updateUser({ ...res?.data, access_token: token }));
+  }, [dispatch]);
+  
   useEffect(() => {
-    setIsPending(true)
+    setIsPending(true);
     const { storageData, decoded } = handleDecoded();
     if (decoded?.id) {
       handleGetDetailsUser(decoded?.id, storageData);
-    // } else {
-    //   dispatch(resetUser()); 
-    //   localStorage.removeItem('access_token'); 
+    } else {
+      dispatch(resetUser());
+      localStorage.removeItem('access_token');
     }
-    setIsPending(false)
-  }, []);
-
+    setIsPending(false);
+  }, [dispatch, handleGetDetailsUser]);
+  
+  
   const handleDecoded = () => {
     let storageData = localStorage.getItem('access_token')
     let decoded = {}
-    console.log("storageData" , storageData, isJsonString(storageData))
+    // console.log("storageData" , storageData, isJsonString(storageData))
     if(storageData && isJsonString(storageData)){
       storageData = JSON.parse(storageData)
       decoded = jwtDecode(storageData)
@@ -52,11 +58,7 @@ function App() {
   });
 
 
-  const handleGetDetailsUser = async (id, token ) =>{
-    const res = await UserService.getDetailsUser(id , token)
-    dispatch(updateUser({...res?.data, access_token: token}))
-    
-  }
+  
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>

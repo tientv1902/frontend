@@ -1,0 +1,22 @@
+.action-button {
+  padding: 0;
+  margin: 0 8px;
+  font-size: 14px;
+}
+
+.ant-table {
+  background: #fff;
+}
+
+.ant-table th {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.ant-table td {
+  color: #666;
+}
+
+.ant-btn-link:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,37 @@
+/* HomePage.css */
+
+/* Căn chỉnh các loại sản phẩm */
+.type-product {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    justify-content: flex-start;  
+    height: 44px;
+}
+
+/* Căn chỉnh nút xem thêm */
+.button-more {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px; /* Khoảng cách giữa button và phần tử phía trên */
+    margin-bottom: 20px; /* Khoảng cách giữa button và footer */
+}
+
+/* Căn chỉnh sản phẩm */
+.products {
+    display: flex;
+    gap: 14px;
+    margin-top: 20px;
+    flex-wrap: wrap; /* Cho phép sản phẩm xuống dòng nếu cần */
+}
+
+/* Căn chỉnh container chính */
+#container {
+    background-color: #F1F1F1;
+    padding: 0 120px;
+    display: flex;
+    flex-direction: column; /* Đảm bảo các phần tử bên trong xếp theo cột */
+    min-height: calc(100vh - 150px); /* Chiều cao tối thiểu, giảm chiều cao của container để giữ khoảng cách với footer */
+}
+
+

@@ -1,0 +1,30 @@
+.admin-product-container {
+    padding: 24px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .title {
+    margin-bottom: 16px; 
+    font-weight: bold; 
+    color: #333; 
+  }
+  
+  .add-product-button {
+    margin-bottom: 16px; 
+    font-size: 16px; 
+  }
+  
+  
+.ant-modal .ant-modal-content {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.right-align {
+  display: flex;
+  justify-content: flex-end;
+}
+
+

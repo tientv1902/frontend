@@ -14,7 +14,7 @@ export const routes = [
         path: '/',
         page: HomePage,
         isShowHeader: true,
-        isShowFooter: true,
+        isShowFooter: false,
     },
     {
         path: '/order',
@@ -61,7 +61,7 @@ export const routes = [
     {
         path: '/system/admin',
         page: AdminPage,
-        isShowHeader: true,
+        isShowHeader: false,
         isShowFooter: false,
         isPrivate: true,
     },

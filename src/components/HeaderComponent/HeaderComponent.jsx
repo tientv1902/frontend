@@ -1,19 +1,21 @@
-import { Badge, Col, message, Popover } from 'antd';
 import React, { useState } from 'react';
-import { WrapperContentPopup, WrapperHeader, WrapperHeaderAccount, WrapperTextHeaderSmall } from './style';
-import { CaretDownOutlined, ShoppingCartOutlined, UserOutlined } from '@ant-design/icons'; 
+import { Badge, Col, message, Popover } from 'antd';
+import { CaretDownOutlined, ShoppingCartOutlined, UserOutlined } from '@ant-design/icons';
 import ButtonInputSearch from '../ButtonInputSearch/ButtonInputSearch';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import * as UserService from '../../services/UserService';
 import { resetUser } from '../../redux/slides/userSlide';
 import Loading from '../LoadingComponent/Loading';
+import './HeaderComponent.css'; // Import file CSS
+import { searchProduct } from '../../redux/slides/productSlide';
 
 const HeaderComponent = () => {
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
+  const [search, setSearch] = useState('')
 
   const handleNavigateLogin = () => {
     navigate('/sign-in');
@@ -25,10 +27,10 @@ const HeaderComponent = () => {
       await UserService.logoutUser();
       dispatch(resetUser());
       localStorage.removeItem('access_token');
-      message.success('Đã đăng xuất thành công!');
+      message.success('Logout successful!');
     } catch (error) {
       console.error('Logout failed:', error);
-      message.error('Đăng xuất thất bại.');
+      message.error('Logout failed!');
     } finally {
       setLoading(false);
       navigate('/sign-in');
@@ -37,31 +39,28 @@ const HeaderComponent = () => {
 
   const content = (
     <div>
-      <WrapperContentPopup
-        onClick={() => {
-          navigate('/profile-user');
-        }}
-      >
+      <p className="content-popup" onClick={() => navigate('/profile-user')}>
         User information
-      </WrapperContentPopup>
+      </p>
       {user?.isAdmin && (
-        <WrapperContentPopup
-        onClick={() => {
-          navigate('/system/admin');
-        }}
-      >
-        System Management
-      </WrapperContentPopup>
+        <p className="content-popup" onClick={() => navigate('/system/admin')}>
+          System Management
+        </p>
       )}
-      <WrapperContentPopup onClick={handleLogout}>Log out</WrapperContentPopup>
+      <p className="content-popup" onClick={handleLogout}>Log out</p>
     </div>
   );
 
+  const onSearch = (e) => {
+    setSearch(e.target.value)
+    dispatch(searchProduct(e.target.value))
+  }
+
   return (
     <div>
-      <WrapperHeader>
+      <div className="header">
         <Col span={5} style={{ display: 'flex', alignItems: 'center' }}>
-          <div 
+          <div
             style={{ 
               fontSize: '24px',
               fontWeight: 'bold',
@@ -77,11 +76,17 @@ const HeaderComponent = () => {
           </div>
         </Col>
         <Col span={13}>
-          <ButtonInputSearch size="large" textButton="Search" placeholder="Input Search" />
+          <ButtonInputSearch 
+          size="large" 
+          textButton="Search" 
+          placeholder="Input Search"
+          onChange={onSearch}
+
+          />
         </Col>
         <Col span={6} style={{ display: 'flex', gap: '44px', alignItems: 'center' }}>
           <Loading isPending={loading}>
-            <WrapperHeaderAccount>
+            <div className="header-account">
               {user?.access_token ? (
                 <>
                   <img
@@ -114,10 +119,8 @@ const HeaderComponent = () => {
                       onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#f0f0f0')}
                       onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
                     >
-                      <span>
-                        {user?.name.length ? user?.name : user?.email}
-                      </span>
-                      <CaretDownOutlined style={{ marginLeft: 'auto' }} /> 
+                      <span>{user?.name.length ? user?.name : user?.email}</span>
+                      <CaretDownOutlined style={{ marginLeft: 'auto' }} />
                     </div>
                   </Popover>
                 </>
@@ -126,30 +129,25 @@ const HeaderComponent = () => {
                   onClick={handleNavigateLogin} 
                   style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}
                 >
-                  <UserOutlined style={{ fontSize: '25px', marginRight: '8px', color: '#333' }} /> 
-                  <WrapperTextHeaderSmall>Account</WrapperTextHeaderSmall>
-                   
+                  <UserOutlined style={{ fontSize: '25px', marginRight: '8px', color: '#333' }} />
+                  <span className="text-header-small">Account</span>
                 </div>
               )}
-            </WrapperHeaderAccount>
+            </div>
           </Loading>
           <div 
-          style={{ 
-            display: 'flex', 
-            alignItems: 'center', 
-            cursor: 'pointer' 
-          }} 
-          onClick={() => navigate('')}
-        >
-          <Badge count={4} style={{ margin: '0' }}> 
-            <ShoppingCartOutlined style={{ fontSize: '25px', color: '#333' }} />
-          </Badge>
-          <WrapperTextHeaderSmall style={{ marginLeft: '4px', marginTop: '2px' }}>  
-            Cart
-          </WrapperTextHeaderSmall>
-        </div>
+            style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} 
+            onClick={() => navigate('')}
+          >
+            <Badge count={4} style={{ margin: '0' }}>
+              <ShoppingCartOutlined style={{ fontSize: '25px', color: '#333' }} />
+            </Badge>
+            <span className="text-header-small" style={{ marginLeft: '4px', marginTop: '2px' }}>
+              Cart
+            </span>
+          </div>
         </Col>
-      </WrapperHeader>
+      </div>
     </div>
   );
 };

@@ -1,0 +1,154 @@
+
+.header {
+    background-color: #ffffff;
+    padding: 15px 100px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: background-color 0.3s;
+    text-transform: none;
+  }
+  
+.header:hover {
+    background-color: #f9f9f9; 
+}
+  
+ 
+.header div {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    letter-spacing: 1.5px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+  
+.header div:hover {
+    color: #1a94ff;
+}
+  
+
+.header-account {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 5px 12px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+  
+.header-account:hover {
+    background-color: #eaeaea;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+  
+ 
+.header-account img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+  
+.header-account img:hover {
+    transform: scale(1.05); 
+}
+  
+  
+.text-header-small {
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    text-transform: none;
+}
+  
+.text-header-small:hover {
+    background-color: #e0e0e0; 
+    color: #1a94ff; 
+}
+  
+ 
+.content-popup {
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 6px;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+}
+  
+.content-popup:hover {
+    background-color: #f0f0f0; 
+    color: #1a94ff; 
+}
+  
+ 
+.badge-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+  
+.badge-wrapper:hover {
+    background-color: #f7f7f7;
+}
+  
+.shopping-cart-icon {
+    font-size: 28px;
+    color: #333;
+}
+  
+.shopping-cart-badge {
+    background-color: #ff4d4f;
+    color: white;
+    font-size: 14px;
+    border-radius: 50%;
+    padding: 4px 8px;
+}
+  
+
+.search-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #d9d9d9;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+  
+.search-input:focus {
+    border-color: #1a94ff;
+    box-shadow: 0 0 8px rgba(26, 148, 255, 0.2);
+}
+  
+.search-button {
+    background-color: #1a94ff;
+    color: white;
+    font-size: 16px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+  
+.search-button:hover {
+    background-color: #1480db; 
+}
+  

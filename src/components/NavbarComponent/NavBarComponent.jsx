@@ -7,8 +7,8 @@ const NavBarComponent = () => {
   const renderContent = (type, options) => {
     switch (type) {
       case "text":
-        return options.map((option) => {
-          return <WrapperTextValue>{option}</WrapperTextValue>;
+        return options.map((option, index) => {
+          return <WrapperTextValue key={index}>{option}</WrapperTextValue>;
         });
       case "checkbox":
         return (
@@ -20,15 +20,15 @@ const NavBarComponent = () => {
             }}
             onChange={onChange}
           >
-            {options.map((option) => {
-              return <Checkbox value={option.value}>{option.label}</Checkbox>;
+            {options.map((option, index) => {
+              return <Checkbox key={index} value={option.value}>{option.label}</Checkbox>;
             })}
           </Checkbox.Group>
         );
       case "star":
-        return options.map((option) => {
+        return options.map((option, index) => {
           return (
-            <div style={{ display: "flex" }}>
+            <div key={index} style={{ display: "flex" }}>
               <Rate
                 style={{ fontSize: "12px" }}
                 disabled
@@ -38,11 +38,9 @@ const NavBarComponent = () => {
             </div>
           );
         });
-        case "price":
-            return options.map((option) => {
-                return (
-              <WrapperTextPrice>{option}</WrapperTextPrice>
-          );
+      case "price":
+        return options.map((option, index) => {
+          return <WrapperTextPrice key={index}>{option}</WrapperTextPrice>;
         });
       default:
         return {};

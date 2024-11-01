@@ -1,71 +1,66 @@
 import React from 'react';
-import { Col } from 'antd';
-import { WrapperFooter, WrapperFooterSection, WrapperFooterText, WrapperFooterLink, WrapperFooterIcon } from './style';
-import {
-  FacebookOutlined,
-  TwitterOutlined,
-  InstagramOutlined,
-  YoutubeOutlined,
-} from '@ant-design/icons';
+import { Col, Row } from 'antd';
+import { FacebookOutlined, TwitterOutlined, InstagramOutlined, YoutubeOutlined } from '@ant-design/icons';
+import './FooterComponent.css'; 
 
 const FooterComponent = () => {
   return (
-    <WrapperFooter>
-      <WrapperFooterSection gutter={16}>
+    <div className="footer">
+      <Row gutter={16} className="wrapper-footer-section">
         <Col span={6}>
-          <WrapperFooterText>
+          <span className="footer-text">
             <strong>About Us</strong>
-          </WrapperFooterText>
-          <WrapperFooterLink href="#">Company Info</WrapperFooterLink>
-          <WrapperFooterLink href="#">Careers</WrapperFooterLink>
-          <WrapperFooterLink href="#">Press Releases</WrapperFooterLink>
-          <WrapperFooterLink href="#">Blog</WrapperFooterLink>
+          </span>
+          <button className="footer-link">Company Info</button>
+          <button className="footer-link">Careers</button>
+          <button className="footer-link">Press Releases</button>
+          <button className="footer-link">Blog</button>
         </Col>
 
         <Col span={6}>
-          <WrapperFooterText>
+          <span className="footer-text">
             <strong>Customer Support</strong>
-          </WrapperFooterText>
-          <WrapperFooterLink href="#">Help Center</WrapperFooterLink>
-          <WrapperFooterLink href="#">Returns</WrapperFooterLink>
-          <WrapperFooterLink href="#">Order Tracking</WrapperFooterLink>
-          <WrapperFooterLink href="#">Shipping Info</WrapperFooterLink>
+          </span>
+          <button className="footer-link">Help Center</button>
+          <button className="footer-link">Returns</button>
+          <button className="footer-link">Order Tracking</button>
+          <button className="footer-link">Shipping Info</button>
         </Col>
 
         <Col span={6}>
-          <WrapperFooterText>
+          <span className="footer-text">
             <strong>Legal</strong>
-          </WrapperFooterText>
-          <WrapperFooterLink href="#">Terms of Service</WrapperFooterLink>
-          <WrapperFooterLink href="#">Privacy Policy</WrapperFooterLink>
-          <WrapperFooterLink href="#">Cookie Policy</WrapperFooterLink>
+          </span>
+          <button className="footer-link">Terms of Service</button>
+          <button className="footer-link">Privacy Policy</button>
+          <button className="footer-link">Cookie Policy</button>
         </Col>
 
         <Col span={6} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <WrapperFooterText>
+          <span className="footer-text">
             <strong>Follow Us</strong>
-          </WrapperFooterText>
+          </span>
           <div style={{ display: 'flex', gap: '10px' }}>
-            <WrapperFooterIcon>
+            <span className="footer-icon">
               <FacebookOutlined />
-            </WrapperFooterIcon>
-            <WrapperFooterIcon>
+            </span>
+            <span className="footer-icon">
               <TwitterOutlined />
-            </WrapperFooterIcon>
-            <WrapperFooterIcon>
+            </span>
+            <span className="footer-icon">
               <InstagramOutlined />
-            </WrapperFooterIcon>
-            <WrapperFooterIcon>
+            </span>
+            <span className="footer-icon">
               <YoutubeOutlined />
-            </WrapperFooterIcon>
+            </span>
           </div>
         </Col>
-      </WrapperFooterSection>
+      </Row>
 
       <div style={{ textAlign: 'center', marginTop: '20px' }}>
-        <WrapperFooterText>© 2024 TVT. All rights reserved.</WrapperFooterText>
+        <span className="footer-text">© 2024 TVT. All rights reserved.</span>
       </div>
-    </WrapperFooter>
+    </div>
   );
 };
 

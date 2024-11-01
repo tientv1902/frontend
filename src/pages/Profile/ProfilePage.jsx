@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { WrapperContentProfile, WrapperHeader, WrapperLabel, StyledCard } from './style';
+import React, { useEffect, useState, useCallback } from 'react';
+import './ProfilePage.css';
 import { Input, Button, Avatar, Row, Col, Upload } from 'antd';
 import { UploadOutlined, UserOutlined } from '@ant-design/icons';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import * as UserService from '../../services/UserService';
 import { useMutationHooks } from '../../hooks/useMutationHook';
 import Loading from '../../components/LoadingComponent/Loading';
 import * as message from '../../components/Message/Message';
-import { useDispatch } from 'react-redux';
 import { updateUser } from '../../redux/slides/userSlide';
 import { getBase64 } from '../../utils';
 
@@ -36,6 +35,11 @@ const ProfilePage = () => {
     setAvatar(user?.avatar);
   }, [user]);
 
+  const handleGetDetailsUser = useCallback(async (id, token) => {
+    const res = await UserService.getDetailsUser(id, token);
+    dispatch(updateUser({ ...res?.data, access_token: token }));
+  }, [dispatch]);
+
   useEffect(() => {
     if (isSuccess) {
       message.success();
@@ -43,12 +47,7 @@ const ProfilePage = () => {
     } else if (isError) {
       message.error();
     }
-  }, [isSuccess, isError]);
-
-  const handleGetDetailsUser = async (id, token) => {
-    const res = await UserService.getDetailsUser(id, token);
-    dispatch(updateUser({ ...res?.data, access_token: token }));
-  };
+  }, [isSuccess, isError, handleGetDetailsUser, user?.id, user?.access_token]);
 
   const handleOnChangeEmail = (e) => {
     setEmail(e.target.value);
@@ -80,10 +79,10 @@ const ProfilePage = () => {
 
   return (
     <div style={{ width: '100%', maxWidth: '900px', margin: 'auto', height: 'auto', padding: '50px 0' }}>
-      <WrapperHeader>User Profile</WrapperHeader>
+      <h1 className="header-profile">User Profile</h1>
       <Loading isPending={isPending}>
-        <WrapperContentProfile>
-          <StyledCard>
+        <div className="content-profile">
+          <div className="styled-card">
             <Row gutter={[20, 20]}>
               <Col span={24} style={{ textAlign: 'center' }}>
                 {avatar ? (
@@ -102,29 +101,29 @@ const ProfilePage = () => {
               </Col>
 
               <Col span={24}>
-                <WrapperLabel>Avatar</WrapperLabel>
+                <label className="label">Avatar</label>
                 <Upload onChange={handleOnChangeAvatar} maxCount={1} showUploadList={false}>
                   <Button icon={<UploadOutlined />}>Upload</Button>
                 </Upload>
               </Col>
 
               <Col span={24}>
-                <WrapperLabel>Name</WrapperLabel>
+                <label className="label">Name</label>
                 <Input id="name" value={name} onChange={handleOnChangeName} style={{ width: '100%', borderRadius: '8px', padding: '10px' }} />
               </Col>
 
               <Col span={24}>
-                <WrapperLabel>Email</WrapperLabel>
+                <label className="label">Email</label>
                 <Input id="email" value={email} onChange={handleOnChangeEmail} style={{ width: '100%', borderRadius: '8px', padding: '10px' }} />
               </Col>
 
               <Col span={24}>
-                <WrapperLabel>Phone</WrapperLabel>
+                <label className="label">Phone</label>
                 <Input id="phone" value={phone} onChange={handleOnChangePhone} style={{ width: '100%', borderRadius: '8px', padding: '10px' }} />
               </Col>
 
               <Col span={24}>
-                <WrapperLabel>Address</WrapperLabel>
+                <label className="label">Address</label>
                 <Input id="address" value={address} onChange={handleOnChangeAddress} style={{ width: '100%', borderRadius: '8px', padding: '10px' }} />
               </Col>
 
@@ -138,8 +137,8 @@ const ProfilePage = () => {
                 </Button>
               </Col>
             </Row>
-          </StyledCard>
-        </WrapperContentProfile>
+          </div>
+        </div>
       </Loading>
     </div>
   );

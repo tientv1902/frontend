@@ -1,0 +1,41 @@
+.admin-user-container {
+    padding: 24px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .title {
+    margin-bottom: 16px; /* Space below the title */
+    font-weight: bold; /* Bold title */
+    color: #333; /* Dark color for title */
+  }
+  
+  .add-user-button {
+    margin-bottom: 16px; /* Space below the button */
+    font-size: 16px; /* Adjust font size */
+  }
+  
+  .action-button {
+    padding: 0; /* Remove default padding for link buttons */
+    margin: 0 8px; /* Space between link buttons */
+    font-size: 14px; /* Adjust font size for action buttons */
+  }
+  
+  .ant-table {
+    background: #fff; /* Background for the table */
+  }
+  
+  .ant-table th {
+    background: #f0f0f0; /* Header background color */
+    color: #333; /* Header text color */
+  }
+  
+  .ant-table td {
+    color: #666; /* Body text color */
+  }
+  
+  .ant-btn-link:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
+  

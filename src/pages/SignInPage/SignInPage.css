@@ -1,0 +1,44 @@
+
+.container-left {
+    flex: 1;
+    padding: 40px 45px 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-right {
+    width: 300px;
+    background: linear-gradient(136deg, rgb(240, 248, 255) -1%, rgb(219, 238, 255) 85%);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    border-radius: 40px;
+}
+
+.text-light {
+    color: rgb(13, 92, 182);
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.login-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.53);
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.login-container {
+  width: 800px;
+  height: 445px;
+  border-radius: 40px;
+  background: #fff;
+  display: flex;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 1);
+}
