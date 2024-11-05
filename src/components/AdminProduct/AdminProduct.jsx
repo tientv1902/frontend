@@ -28,6 +28,7 @@ const AdminProduct = (props) => {
   const [stateProduct, setStateProduct] = useState({
     name: '',
     price: '',
+    discount: '',
     description: '',
     rating: '',
     image: '',
@@ -41,6 +42,7 @@ const AdminProduct = (props) => {
     description: '',
     rating: '',
     image: '',
+    discount: '',
     type: '',
     countInStock: '',
   });
@@ -50,6 +52,7 @@ const AdminProduct = (props) => {
       const {
         name,
         price,
+        discount,
         description,
         rating,
         image,
@@ -59,6 +62,7 @@ const AdminProduct = (props) => {
       const res = ProductService.createProuct({
         name,
         price,
+        discount,
         description,
         rating,
         image,
@@ -115,6 +119,7 @@ const AdminProduct = (props) => {
     setStateProduct({
       name: '',
       price: '',
+      discount: '',
       description: '',
       rating: '',
       image: '',
@@ -130,6 +135,7 @@ const AdminProduct = (props) => {
     setStateProductDetails({
       name: '',
       price: '',
+      discount: '',
       description: '',
       rating: '',
       image: '',
@@ -198,6 +204,7 @@ const AdminProduct = (props) => {
       setStateProductDetails({
         name: res.data.name,
         price: res.data.price,
+        discount: res.data.discount,
         description: res.data.description,
         rating: res.data.rating,
         image: res.data.image,
@@ -242,8 +249,7 @@ const AdminProduct = (props) => {
     console.log("rowSelected", rowSelected)
   }
 
-  useEffect(() => {
-    console.log("Mutation data:", data); 
+  useEffect(() => { 
     if (isSuccess) {
         if (data?.status === 'Ok') { 
             message.success("Product added successfully!");
@@ -357,6 +363,18 @@ const AdminProduct = (props) => {
             />
           </Form.Item>
           <Form.Item
+            label="Discount Product"
+            name="discount"
+            rules={[{ required: true, message: "Please enter the discount" }]}
+          >
+            <Input
+              placeholder="Enter discount"
+              value={stateProduct.discount}
+              onChange={handleOnchange}
+              name="discount"
+            />
+          </Form.Item>
+          <Form.Item
             label="Category"
             name="type"
             rules={[{ required: true, message: "Please enter the product category" }]}
@@ -462,6 +480,18 @@ const AdminProduct = (props) => {
           value={stateProductDetails.price}
           onChange={handleOnchangeDetails}
           name="price"
+        />
+      </Form.Item>
+      <Form.Item
+        label="Discount Product"
+        name="discount"
+        rules={[{ required: true, message: "Please enter the discount" }]}
+      >
+        <Input
+          placeholder="Enter discount"
+          value={stateProductDetails.discount}
+          onChange={handleOnchangeDetails}
+          name="discount"
         />
       </Form.Item>
           <Form.Item

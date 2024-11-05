@@ -1,0 +1,117 @@
+/* Toàn bộ container của trang */
+.payment-page-container {
+  padding: 20px;
+  max-width: 1500px; /* Giới hạn chiều rộng phù hợp */
+  margin: 40px auto;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Các box chọn phương thức và tóm tắt đơn hàng */
+.payment-page-box, .payment-page-summary-box {
+  padding: 20px;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  margin-bottom: 20px;
+}
+
+/* Tiêu đề từng phần */
+.payment-page-box h2, .payment-page-summary-box h2 {
+  font-size: 1.5em;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+/* Định dạng sản phẩm trong danh sách đơn hàng */
+.payment-page-product-item {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 10px 0;
+}
+.payment-page-product-item:last-child {
+  border-bottom: none;
+}
+
+/* Ảnh sản phẩm */
+.payment-page-product-image {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-right: 16px;
+}
+
+/* Tiêu đề và mô tả sản phẩm */
+.payment-page-item-meta-title {
+  font-size: 1.1em;
+  font-weight: 500;
+  color: #444;
+}
+.payment-page-item-meta-description {
+  color: #d05757;
+  font-size: 0.9em;
+}
+
+/* Tóm tắt thanh toán */
+.payment-page-summary-row {
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1em;
+  color: #333;
+}
+.payment-page-summary-row strong {
+  font-weight: 600;
+  color: #222;
+}
+
+/* Nút đặt hàng */
+.payment-page-place-order-button {
+  margin-top: 20px;
+  width: 100%;
+  background-color: #ff1827;
+  color: white;
+  font-size: 1.1em;
+  font-weight: 600;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+.payment-page-place-order-button:hover {
+  background-color: #e0274b;
+}
+
+/* Tiêu đề trong modal */
+.payment-page-modal-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Các thành phần trong form */
+.payment-page-form-item {
+  margin-bottom: 16px;
+}
+.payment-page-form-item-label > label {
+  font-weight: bold;
+  color: #444;
+}
+
+/* Điều chỉnh màu nút khi hover */
+.payment-page-button-primary {
+  background-color: #ff1827;
+  border-color: #ff1827;
+}
+.payment-page-button-primary:hover {
+  background-color: #e0274b;
+  border-color: #e0274b;
+}
+
+/* Đoạn văn bản nhấn mạnh */
+.payment-page-box, .payment-page-summary-box strong {
+  color: #222;
+  font-weight: bold;
+}

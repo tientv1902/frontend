@@ -7,7 +7,7 @@ import * as UserService from '../../services/UserService';
 import { useMutationHooks } from '../../hooks/useMutationHook';
 import Loading from '../../components/LoadingComponent/Loading';
 import * as message from '../../components/Message/Message';
-import { updateUser } from '../../redux/slides/userSlide';
+import { updateUser } from '../../redux/slices/userSlice';
 import { getBase64 } from '../../utils';
 
 const ProfilePage = () => {

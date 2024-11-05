@@ -5,10 +5,10 @@ import ButtonInputSearch from '../ButtonInputSearch/ButtonInputSearch';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import * as UserService from '../../services/UserService';
-import { resetUser } from '../../redux/slides/userSlide';
+import { resetUser } from '../../redux/slices/userSlice';
 import Loading from '../LoadingComponent/Loading';
 import './HeaderComponent.css'; // Import file CSS
-import { searchProduct } from '../../redux/slides/productSlide';
+import { searchProduct } from '../../redux/slices/productSlice';
 
 const HeaderComponent = () => {
   const navigate = useNavigate();
@@ -16,6 +16,7 @@ const HeaderComponent = () => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState('')
+  const order = useSelector((state) => state.order)
 
   const handleNavigateLogin = () => {
     navigate('/sign-in');
@@ -43,7 +44,7 @@ const HeaderComponent = () => {
         User information
       </p>
       {user?.isAdmin && (
-        <p className="content-popup" onClick={() => navigate('/system/admin')}>
+        <p className="content-popup" onClick={() => navigate('/manage/admin')}>
           System Management
         </p>
       )}
@@ -137,9 +138,9 @@ const HeaderComponent = () => {
           </Loading>
           <div 
             style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} 
-            onClick={() => navigate('')}
+            onClick={() => navigate('/order')}
           >
-            <Badge count={4} style={{ margin: '0' }}>
+            <Badge count={order?.orderItems?.length} style={{ margin: '0' }}>
               <ShoppingCartOutlined style={{ fontSize: '25px', color: '#333' }} />
             </Badge>
             <span className="text-header-small" style={{ marginLeft: '4px', marginTop: '2px' }}>

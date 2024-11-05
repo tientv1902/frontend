@@ -18,7 +18,12 @@ export const createProuct = async (data) => {
 };
 
 export const getDetailsProduct = async (id) => {
-    const res = await axios.get(`${process.env.REACT_APP_API_URL}/product/get-details/${id}`);
+    const res = await axios.get(`${process.env.REACT_APP_API_URL}/product/product-details/${id}`);
+    return res.data;
+};
+
+export const getCategoryProduct = async () => {
+    const res = await axios.get(`${process.env.REACT_APP_API_URL}/product/getCategory`);
     return res.data;
 };
 
@@ -40,4 +45,10 @@ export const deleteProduct = async (id, access_token) => {
     return res.data;
 };
 
-
+export const getAllProductCategory = async (type, page, limit) => {
+    if(type){
+       const res = await axios.get(`${process.env.REACT_APP_API_URL}/product/getAll?filter=type&filter=${type}&limit=${limit}&page=${page}`);
+       return res.data
+    }
+       
+}

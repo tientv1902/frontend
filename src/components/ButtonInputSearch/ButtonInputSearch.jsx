@@ -3,32 +3,30 @@ import { SearchOutlined } from "@ant-design/icons";
 import ButtonComponent from "../ButtonComponent/ButtonComponent";
 import InputComponent from "../InputComponent/InputComponent";
 
-const ButtonInputSearch = (props) => {
-  const {
-    size,
-    placeholder,
-    textButton,
-    backgroundColorInput = '#fff',
-    backgroundColorButton = 'rgb(13, 92, 182)',
-    colorButton = '#fff',
-  } = props;
-
+const ButtonInputSearch = ({
+  size,
+  placeholder,
+  textButton,
+  backgroundColorInput = '#fff',
+  backgroundColorButton = 'rgb(13, 92, 182)',
+  colorButton = '#fff',
+  ...inputProps // Tách các thuộc tính dành riêng cho InputComponent
+}) => {
   return (
     <div style={{ display: "flex", border: 'none' }}>
       <InputComponent
         size={size}
         placeholder={placeholder}
-        style={{ backgroundColor: backgroundColorInput, borderRight: 'none' }} 
-        {...props}
+        style={{ backgroundColor: backgroundColorInput, borderRight: 'none' }}
+        {...inputProps} // Chỉ truyền những thuộc tính dành riêng cho InputComponent
       />
       <ButtonComponent 
         size={size} 
         style={{
           background: backgroundColorButton,
-           
         }}
-        icon={<SearchOutlined color={colorButton} style={{ color: '#fff' }} />}
-        textButton={textButton}
+        icon={<SearchOutlined style={{ color: colorButton }} />}
+        textButton={textButton} // Truyền textButton vào ButtonComponent
         styleTextButton={{ color: colorButton }}
       />
     </div>

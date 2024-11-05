@@ -6,13 +6,13 @@ import { Image } from 'antd';
 import { EyeFilled, EyeInvisibleFilled } from '@ant-design/icons';
 import imageLogo from '../../assets/images/logo-login.png';
 import imageLogin from '../../assets/images/background-login2.png';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import * as UserService from '../../services/UserService';
 import { useMutationHooks } from '../../hooks/useMutationHook';
 import Loading from '../../components/LoadingComponent/Loading';
 import { jwtDecode } from 'jwt-decode';
 import { useDispatch } from 'react-redux';
-import { updateUser } from '../../redux/slides/userSlide';
+import { updateUser } from '../../redux/slices/userSlice';
 
 const SignInPage = () => {
   const [isShowPassword, setIsShowPassword] = useState(false);
@@ -20,6 +20,7 @@ const SignInPage = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const location = useLocation()
 
   const mutation = useMutationHooks((data) => UserService.loginUser(data));
   const { data, isPending, isSuccess } = mutation;
@@ -31,7 +32,11 @@ const SignInPage = () => {
     };
 
     if (isSuccess) {
-      navigate('/');
+      if(location?.state) {
+        navigate(location?.state)
+      }else{
+        navigate('/');    
+      }
       localStorage.setItem('access_token', JSON.stringify(data?.access_token));
       if (data?.access_token) {
         const decoded = jwtDecode(data?.access_token);

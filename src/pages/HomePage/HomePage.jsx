@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import TypeProduct from '../../components/TypeProduct/TypeProduct';
 import SliderComponent from '../../components/SliderComponent/SliderComponent';
 import slider111 from '../../assets/images/slider111.png';
@@ -20,31 +20,42 @@ const HomePage = () => {
   const useSearchHook = useDebounceHook(searchProduct, 500)
   const [limit, setLimit] = useState(5)
   const [pending, setPending] = useState(false)
-  const arr = ['TV', 'Laptop', 'Iphone'];
+  const [categoryProduct, setCategoryProduct] = useState([]) 
 
   const fetchProductAll = async (context) => {
     const limit = context?.queryKey && context?.queryKey[1]
     const search = context?.queryKey && context?.queryKey[2]
       const res = await ProductService.getAllProduct(search, limit);
       return res
-    }
+  }
     
 
-  const { data: products, isPending, isPreviousData } = useQuery({
+  const fetchCategoryProduct = async () => {
+    const res = await ProductService.getCategoryProduct()
+    if(res?.status === 'OK'){
+      setCategoryProduct(res?.data)
+    }
+  }
+  
+  const { data: products, isPending } = useQuery({
     queryKey: ['product', limit, useSearchHook], 
     queryFn: fetchProductAll,
     retry: 3,
     retryDelay: 1000,
-    keepPreviousData: true
+    keepPreviousData: true,
+    staleTime: 30000
   });
+  console.log("Products:", products);
 
-  console.log("isPreviousData",isPreviousData, isPending)
-
+  useEffect(() => {
+    fetchCategoryProduct()
+  }, [])
+  
   return (
     <Loading isPending={isPending || pending}>
       <div style={{ padding: '0 120px' }}>
         <div className="type-product">
-          {arr.map((item) => (
+          {categoryProduct.map((item) => (
             <TypeProduct name={item} key={item} />
           ))}
         </div>
@@ -64,6 +75,7 @@ const HomePage = () => {
           type={product.type}
           selled={product.selled}
           discount={product.discount}
+          id={product._id}
         />))}
           
         </div>
