@@ -1,0 +1,34 @@
+/* Container styling for the entire category list */
+.type-product-container {
+  padding: 20px;
+}
+
+/* Header styling for the single "Category" title */
+.type-product-header {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Styling for each individual product item */
+.type-product-item {
+  padding: 10px 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #333;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+  text-align: center;
+}
+
+.type-product-item:hover {
+  background-color: #e0f7fa;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

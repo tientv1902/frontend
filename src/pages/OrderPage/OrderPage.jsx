@@ -197,24 +197,24 @@ const OrderPage = () => {
       <Row gutter={24}>
         <Col span={16}>
           <Card className="product-card">
-            <div className="select-all">
-              <Checkbox 
-                checked={selectAll}
-                onChange={handleSelectAll}
-              >
-                All ({order?.orderItems?.length} product)
-              </Checkbox>
-              <Text className="price-header">Selling price</Text>
-              <Text className="price-header">Quantity</Text>
-              <Text className="price-header">Total amount</Text>
-              <Button 
-                type="text" 
-                icon={<DeleteOutlined />} 
-                className="delete-btn"
-                onClick={handleDeleteSelected}
-                disabled={selectedItems.length === 0}
-              />
-            </div>
+          <div className="select-all">
+            <Checkbox 
+              checked={selectAll}
+              onChange={handleSelectAll}
+            >
+              All ({order?.orderItems?.length} products)
+            </Checkbox>
+            <Text className="price-header">Selling Price</Text>
+            <Text className="price-header"></Text>
+            <Text className="price-header">Quantity-Total Amount</Text>
+            <Button 
+              type="text" 
+              icon={<DeleteOutlined />} 
+              className="delete-btn"
+              onClick={handleDeleteSelected}
+              disabled={selectedItems.length === 0}
+            />
+          </div>
             <Divider />
             {order?.orderItems?.map((orderItem) => (
               <div className="product-item" key={orderItem.product}>
@@ -227,7 +227,7 @@ const OrderPage = () => {
                   <div className="product-info">
                     <img src={orderItem?.image} alt="Product" className="product-image" />
                     <div>
-                      <Text strong className="product-name">{orderItem?.name}</Text>
+                      <Text strong className="product-name-1">{orderItem?.name}</Text>
                       <div className="product-price">
                         {orderItem?.discount > 0 ? (
                           <>
@@ -238,6 +238,10 @@ const OrderPage = () => {
                               ${(orderItem.price * (1 - (orderItem.discount / 100))).toFixed(2)} 
                             </Text>
                             <Text strong className="discount">{orderItem?.discount}% Discount</Text>
+                            {/* <br />
+                        <Text>Số lượng còn lại: {order.countInStock}</Text>
+                        <br />
+                        <Text>Đã bán: {order.selled}</Text> */}
                           </>
                         ) : (
                           <Text strong className="current-price">
@@ -259,7 +263,7 @@ const OrderPage = () => {
                       onClick={() => handleQuantityChange(orderItem.product, 'increase')}
                     />
                   </div>
-                  <Text strong className="total-price">
+                  <Text strong className="total-price-1">
                     {((orderItem?.price * orderItem?.amount * (1 - (orderItem.discount || 0) / 100)) || 0).toFixed(2)}$
                   </Text>
                   <Button 
@@ -292,7 +296,7 @@ const OrderPage = () => {
             </div>
             <Divider />
             <div className="totals">
-              <Text><GiftOutlined /> Total Discount: {totalDiscount.toFixed(2)}$</Text>
+              <Text><GiftOutlined /> Total Discount Price: {totalDiscount.toFixed(2)}$</Text>
               <Title level={4} className="grand-total">Total Payment: {totalAmount.toFixed(2)}$</Title>
             </div>
             <Button type="primary" block className="purchase-btn" onClick={() => handleAddCart()}>Purchase ({selectedItems.length})</Button> 

@@ -1,22 +1,25 @@
-import React from 'react'
-import ProductDetailsComponent from '../../components/ProductDetailsComponent/ProductDetailsComponent'
-import { useNavigate, useParams } from 'react-router-dom'
+import React from 'react';
+import ProductDetailsComponent from '../../components/ProductDetailsComponent/ProductDetailsComponent';
+import { useNavigate, useParams } from 'react-router-dom';
+import './ProductDetailsPage.css'; // Import the new CSS file
 
 const ProductDetailsPage = () => {
-  const {id} = useParams()
-  const navigate = useNavigate()
-  
+  const { id } = useParams();
+  const navigate = useNavigate();
 
   return (
-    <div style={{padding:'0 120px', background: '#efefef', height: "1000px"}}>
-        <h5 style={{margin: '0'}}>
-          <span onClick={() => {navigate('/')}} style={{cursor: 'pointer', fontWeight: 'bold'}}>
+    <div className="product-details-page">
+        <h5>
+          <span onClick={() => { navigate('/'); }} className="breadcrumb-link" style={{cursor: 'pointer'}}>
             Home
           </span>
-          / Product Details</h5>
+          / Product Details
+        </h5>
+        <div className="product-details-wrapper">
           <ProductDetailsComponent productId={id} />
+        </div>
     </div>
-  )
-}
+  );
+};
 
-export default ProductDetailsPage
+export default ProductDetailsPage;

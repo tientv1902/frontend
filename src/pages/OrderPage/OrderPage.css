@@ -1,154 +1,207 @@
 .order-page {
-    padding: 24px;
-    background-color: #f9f9f9;
-  }
-  
-  .page-title {
-    margin-bottom: 20px;
-    color: #333;
-  }
-  
-  .product-card, .order-summary {
-    border-radius: 8px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-  }
-  
-  .select-all {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .price-header {
-    font-size: 16px;
-    font-weight: 500;
-    color: #888;
-  }
-  
-  .product-item {
-    padding: 16px;
-  }
-  
-  .shop-icon {
-    color: #1890ff;
-    margin-right: 4px;
-  }
-  
-  .product-details {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px 0;
-    border-bottom: 1px solid #f0f0f0;
-  }
-  
-  .product-info {
-    display: flex;
-    align-items: center;
-    flex: 1;
-  }
-  
-  .product-image {
-    width: 80px;
-    height: 80px;
-    margin-right: 16px;
-    border-radius: 8px;
-    border: 1px solid #f0f0f0;
-  }
-  
-  .product-name {
-    font-size: 14px;
-    color: #333;
-  }
-  
-  .product-price {
-    display: flex;
-    align-items: baseline;
-    margin-top: 4px;
-  }
-  
-  .current-price {
-    
-    color: #ff4d4f;
-    font-size: 16px;
-    margin-right: 8px;
-  }
-  
-  .original-price {
-    color: #aaa;
-    font-size: 14px;
-  }
-  
-  .quantity-input {
-    margin-right: 16px;
-  }
-  
-  .total-price {
-    font-size: 16px;
-    color: #ff4d4f;
-  }
-  
-  .delete-btn {
-    color: #ff4d4f;
-    transition: color 0.3s;
-  }
-  
-  .delete-btn:hover {
-    color: #ff7875;
-  }
-  
-  .order-summary {
-    padding: 16px;
-  }
-  
-  .shipping-info, .discounts, .totals {
-    margin-bottom: 16px;
-  }
-  
-  .address {
-    display: block;
-    font-size: 14px;
-    color: #555;
-    margin-top: 4px;
-  }
-  
-  .change-btn {
-    color: #1890ff;
-    font-size: 14px;
-  }
-  
-  .grand-total {
-    color: #ff4d4f;
-  }
-  
-  .purchase-btn {
-    background-color: #ff4d4f;
-    color: #fff;
-    border: none;
-    font-size: 16px;
-    height: 48px;
-    border-radius: 8px;
-  }
-  
-  .purchase-btn:hover {
-    background-color: #ff7875;
-  }
-  
-  .quantity-control {
-    display: flex;
-    align-items: center;
-  }
-  
-  .quantity-control .ant-btn {
-    margin: 0 4px;
-    border: 1px solid #d9d9d9;
-    color: #333;
-  }
-  
-  .totals .subtotal,
-  .totals .discount {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
+  padding: 24px;
+  background-color: #f5f7fa;
+  font-family: Arial, sans-serif;
+}
+
+.page-title {
+  margin-bottom: 20px;
+  color: #2f3b52;
+  font-weight: bold;
+}
+
+.product-card, .order-summary {
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  transition: box-shadow 0.3s ease;
+}
+
+.product-card:hover, .order-summary:hover {
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.select-all {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price-header {
+  font-size: 16px;
+  font-weight: 500;
+  color: #888;
+}
+
+.product-item {
+  padding: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.product-item:hover {
+  background-color: #f9fafc;
+}
+
+.product-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.product-info {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.product-image {
+  width: 80px;
+  height: 80px;
+  margin-right: 16px;
+  border-radius: 8px;
+  border: 1px solid #e1e1e1;
+}
+
+.product-name-1 {
+  font-size: 18px;
+  color: #333;
+  font-weight: 600;
+}
+
+.product-price {
+  display: flex;
+  align-items: baseline;
+  margin-top: 6px;
+}
+
+.current-price {
+  color: #ff4d4f;
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.original-price {
+  color: #bbb;
+  font-size: 14px;
+  text-decoration: line-through;
+  margin-right: 8px;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+}
+
+.quantity-control .ant-btn {
+  margin: 0 4px;
+  border: 1px solid #d9d9d9;
+  color: #333;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.quantity-control .ant-btn:hover {
+  background-color: #f0f0f0;
+  color: #ff4d4f;
+}
+
+.total-price-1 {
+  font-size: 16px;
+  color: #ff4d4f;
+  font-weight: bold;
+}
+
+.delete-btn {
+  color: #ff4d4f;
+  transition: color 0.3s;
+}
+
+.delete-btn:hover {
+  color: #ff7875;
+}
+
+.order-summary {
+  padding: 16px;
+}
+
+.shipping-info, .discounts, .totals {
+  margin-bottom: 16px;
+}
+
+.address {
+  font-size: 14px;
+  color: #555;
+  display: flex;
+  align-items: center;
+}
+
+.change-btn {
+  color: #1890ff;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.grand-total {
+  color: #ff4d4f;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.purchase-btn {
+  background-color: #ff4d4f;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  height: 48px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.purchase-btn:hover {
+  background-color: #ff7875;
+}
+
+.totals .subtotal,
+.totals .discount {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.totals .shipping-fee {
+  color: #4a4a4a;
+}
+
+.select-all {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background-color: #f9fafc;
+  border-radius: 8px;
+}
+
+.select-all .ant-checkbox-wrapper {
+  font-size: 16px;
+  color: #333;
+}
+
+.price-header {
+  font-size: 16px;
+  font-weight: 500;
+  color: #888;
+  margin: 0 10px;
+  flex: 1;
+  text-align: center;
+}
+
+.delete-btn {
+  color: #ff4d4f;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.delete-btn:hover {
+  color: #ff7875;
+}

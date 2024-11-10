@@ -1,5 +1,6 @@
 import AdminPage from "../pages/AdminPage/AdminPage";
 import HomePage from "../pages/HomePage/HomePage";
+import MyOrderPage from "../pages/MyOrderPage/MyOrderPage";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 import OrderPage from "../pages/OrderPage/OrderPage";
 import PaymentPage from "../pages/PaymentPage/PaymentPage";
@@ -8,14 +9,16 @@ import ProductsPage from "../pages/ProductsPage/ProductsPage";
 import ProfilePage from "../pages/Profile/ProfilePage";
 import SignInPage from "../pages/SignInPage/SignInPage";
 import SignUpPage from "../pages/SignUpPage/SignUpPage";
+import SuccessOrderPage from "../pages/SuccessOrderPage/SuccessOrderPage";
 import TypeProductPage from "../pages/TypeProductPage/TypeProductPage";
+import ViewOrderDetails from "../pages/ViewOrderDetails/ViewOrderDetails";
 
 export const routes = [
     {
         path: '/',
         page: HomePage,
         isShowHeader: true,
-        isShowFooter: false,
+        isShowFooter: true,
     },
     {
         path: '/order',
@@ -26,6 +29,24 @@ export const routes = [
     {
         path: '/payment',
         page: PaymentPage,
+        isShowHeader: true,
+        isShowFooter: true,
+    },
+    {
+        path: '/successOrder',
+        page: SuccessOrderPage,
+        isShowHeader: true,
+        isShowFooter: true,
+    },
+    {
+        path: '/viewOrderDetails/:id',
+        page: ViewOrderDetails,
+        isShowHeader: true,
+        isShowFooter: true,
+    },
+    {
+        path: '/myOrder',
+        page: MyOrderPage,
         isShowHeader: true,
         isShowFooter: true,
     },

@@ -4,7 +4,7 @@ import './CartComponent.css';
 import { useNavigate } from 'react-router-dom';
 
 const CartComponent = (props) => {
-  const { image, name, price, rating, discount, selled, id } = props;
+  const { image, name, price, rating, discount, selled, id, countInStock } = props;
   
   const navigate = useNavigate();
 
@@ -15,10 +15,13 @@ const CartComponent = (props) => {
     } else {
         console.error('Product ID is undefined in handleDetailsProduct');
     }
-};
+  };
 
   return (
-    <div className="cart" onClick={() => handleDetailsProduct(id)}>
+    <div
+      className={`cart ${countInStock === 0 ? 'disabled' : ''}`}
+      onClick={() => countInStock !== 0 && handleDetailsProduct(id)}
+    >
       <img alt={name} src={image} />
       <div className="style-name-product">{name}</div>
       <div className="report-text">
@@ -36,6 +39,5 @@ const CartComponent = (props) => {
     </div>
   );
 };
-
 
 export default CartComponent;

@@ -1,25 +1,24 @@
 import React from "react";
-import { WrapperContent, WrapperLableText, WrapperTextValue } from "./style";
-
+import "./NavBarComponent.css";
 
 const NavBarComponent = () => {
   const renderContent = (type, options) => {
     switch (type) {
       case "text":
         return options.map((option, index) => {
-          return <WrapperTextValue key={index}>{option}</WrapperTextValue>;
+          return <span className="wrapper-text-value" key={index}>{option}</span>;
         });
       default:
-        return {};
+        return null;
     }
   };
 
   return (
     <div>
-      <WrapperLableText>Category</WrapperLableText>
-      <WrapperContent>
-        {renderContent("text", ["laptop", "phone"])}
-      </WrapperContent>
+      <h4 className="wrapper-label-text">Category</h4>
+      <div className="wrapper-content">
+        {renderContent("text", ["laptop"])}
+      </div>
     </div>
   );
 };

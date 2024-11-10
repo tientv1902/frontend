@@ -9,6 +9,7 @@ import { resetUser } from '../../redux/slices/userSlice';
 import Loading from '../LoadingComponent/Loading';
 import './HeaderComponent.css'; // Import file CSS
 import { searchProduct } from '../../redux/slices/productSlice';
+import { FaUser, FaCogs, FaClipboardList, FaSignOutAlt } from 'react-icons/fa';
 
 const HeaderComponent = () => {
   const navigate = useNavigate();
@@ -41,16 +42,28 @@ const HeaderComponent = () => {
   const content = (
     <div>
       <p className="content-popup" onClick={() => navigate('/profile-user')}>
+        <FaUser style={{ marginRight: '8px' }} />
         User information
       </p>
+      
       {user?.isAdmin && (
         <p className="content-popup" onClick={() => navigate('/manage/admin')}>
+          <FaCogs style={{ marginRight: '8px' }} />
           System Management
         </p>
       )}
-      <p className="content-popup" onClick={handleLogout}>Log out</p>
+      
+      <p className="content-popup" onClick={() => navigate('/myOrder')}>
+        <FaClipboardList style={{ marginRight: '8px' }} />
+        My Order
+      </p>
+      
+      <p className="content-popup" onClick={handleLogout}>
+        <FaSignOutAlt style={{ marginRight: '8px' }} />
+        Log out
+      </p>
     </div>
-  );
+);
 
   const onSearch = (e) => {
     setSearch(e.target.value)

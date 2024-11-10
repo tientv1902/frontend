@@ -115,3 +115,38 @@
   color: #222;
   font-weight: bold;
 }
+
+/* Cấu hình chung cho các tùy chọn */
+.payment-page-method-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 1.1em;
+  font-weight: 500;
+  margin-bottom: 12px;
+  width: 100%;
+  color: #444;
+}
+
+/* Cấu hình nền gradient cho các tùy chọn giao hàng */
+.payment-page-shipping-options .ant-radio-wrapper {
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* Cấu hình nền gradient cho phương thức thanh toán */
+.payment-page-payment-options .ant-radio-wrapper {
+  background: linear-gradient(135deg, #d3e4cd 0%, #99d98c 100%);
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* Thêm hiệu ứng hover để nổi bật */
+.payment-page-shipping-options .ant-radio-wrapper:hover,
+.payment-page-payment-options .ant-radio-wrapper:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transform: scale(1.02);
+  transition: all 0.2s ease-in-out;
+}

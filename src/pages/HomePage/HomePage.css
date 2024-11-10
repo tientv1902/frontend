@@ -1,35 +1,82 @@
-
-.type-product {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    justify-content: flex-start;  
-    height: 44px;
-}
-
-
-.button-more {
-    width: 100%;
-    text-align: center;
-    margin-top: 20px; 
-    margin-bottom: 20px; 
-}
-
-
-.products {
-    display: flex;
-    gap: 14px;
-    margin-top: 20px;
-    flex-wrap: wrap; 
-}
-
-
 #container {
-    background-color: #F1F1F1;
-    padding: 0 120px;
-    display: flex;
-    flex-direction: column; 
-    min-height: calc(100vh - 150px);
+  display: flex;
+  min-height: 100vh;
+  padding: 20px;
+  gap: 20px;
+  background-color: #f5f5f5; /* Background for the entire content area */
+  border-radius: 8px;
 }
 
+/* Sidebar styling */
+.sidebar {
+  width: 180px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Align items to the top */
+}
 
+/* Header styling for the "Category" title */
+.type-product-header {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Styling for each category item */
+.type-product {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.type-product-item {
+  cursor: pointer;
+  font-size: 14px;
+  color: rgb(11, 116, 229);
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.type-product-item:hover {
+  background-color: rgba(11, 116, 229, 0.1);
+}
+
+/* Main content styling */
+.main-content {
+  width: calc(100% - 200px); /* Adjust width to leave space for sidebar */
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 100px;
+}
+
+/* Products layout */
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+/* Load more button */
+.button-more {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
