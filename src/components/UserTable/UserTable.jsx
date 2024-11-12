@@ -93,7 +93,6 @@ const UserTable = ({
         className="search-bar"
       />
       <AntTable
-        // rowSelection={{ type: selectionType }}
         columns={columns}
         dataSource={dataSource}
         loading={isPending}

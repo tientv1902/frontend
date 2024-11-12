@@ -128,9 +128,6 @@ const ProductTable = ({ products = [], selectionType = 'checkbox', isPending = f
       </Select>
 
       <AntTable 
-        // rowSelection={{
-        //   type: selectionType,
-        // }}
         columns={columns} 
         dataSource={dataSource} 
         loading={isPending} 

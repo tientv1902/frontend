@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
 import { Layout, Menu, Breadcrumb } from 'antd';
-import { UserOutlined, DashboardOutlined, HomeOutlined, ShoppingCartOutlined } from '@ant-design/icons';
+import { UserOutlined, DashboardOutlined, HomeOutlined, ShoppingCartOutlined} from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom'; // Thêm import này
 import 'antd/dist/reset.css'; 
 import './AdminPage.css'; 
 import Dashboard from '../../components/Dashboard/Dashboard';
 import AdminUser from '../../components/AdminUser/AdminUser';
 import AdminProduct from '../../components/AdminProduct/AdminProduct';
+import AdminOrder from '../../components/AdminOrder/AdminOrder';
+import { DollarOutlined } from '@ant-design/icons';
 
 const { Header, Content, Sider } = Layout;
 
 const AdminPage = () => {
   const [selectedKey, setSelectedKey] = useState('dashboard');
-  const navigate = useNavigate(); // Khai báo useNavigate
+  const navigate = useNavigate(); 
 
   const menuItems = [
     {
@@ -30,6 +32,11 @@ const AdminPage = () => {
       icon: <ShoppingCartOutlined />,
       label: 'Products Management',
     },
+    {
+      key: 'orderManagement',
+      icon: <DollarOutlined />,
+      label: 'Order Management',
+    },
   ];
 
   const renderPage = (key) => {
@@ -40,6 +47,8 @@ const AdminPage = () => {
         return <AdminUser />;
       case 'productManagement':
         return <AdminProduct />;
+        case 'orderManagement':
+          return <AdminOrder />;  
       default:
         return <></>;
     }
@@ -47,15 +56,15 @@ const AdminPage = () => {
 
   const breadcrumbItems = [
     { title: 'Admin' },
-    { title: selectedKey === 'userManagement' ? 'User Management' : selectedKey === 'productManagement' ? 'Products Management' : 'Dashboard' },
-  ];
+    { title: selectedKey === 'userManagement' ? 'User Management' : selectedKey === 'orderManagement' ? 'Order Management': selectedKey === 'productManagement' ? 'Products Management' : 'Dashboard' },
+  ];  
 
   const handleMenuClick = (e) => {
     setSelectedKey(e.key);
   };
 
   const handleLogoClick = () => {
-    navigate('/'); // Chuyển hướng về trang home
+    navigate('/'); 
   };
 
   return (

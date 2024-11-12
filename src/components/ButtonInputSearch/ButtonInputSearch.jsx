@@ -10,7 +10,7 @@ const ButtonInputSearch = ({
   backgroundColorInput = '#fff',
   backgroundColorButton = 'rgb(13, 92, 182)',
   colorButton = '#fff',
-  ...inputProps // Tách các thuộc tính dành riêng cho InputComponent
+  ...inputProps 
 }) => {
   return (
     <div style={{ display: "flex", border: 'none' }}>
@@ -18,7 +18,7 @@ const ButtonInputSearch = ({
         size={size}
         placeholder={placeholder}
         style={{ backgroundColor: backgroundColorInput, borderRight: 'none' }}
-        {...inputProps} // Chỉ truyền những thuộc tính dành riêng cho InputComponent
+        {...inputProps} 
       />
       <ButtonComponent 
         size={size} 
@@ -26,7 +26,7 @@ const ButtonInputSearch = ({
           background: backgroundColorButton,
         }}
         icon={<SearchOutlined style={{ color: colorButton }} />}
-        textButton={textButton} // Truyền textButton vào ButtonComponent
+        textButton={textButton} 
         styleTextButton={{ color: colorButton }}
       />
     </div>

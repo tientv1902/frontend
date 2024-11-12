@@ -27,7 +27,7 @@ const ViewOrderDetails = () => {
   const { data, isPending } = useQuery({
     queryKey: ['orders-details'],
     queryFn: fetchOrderDetails,
-    enabled: !!id, // Ensure query runs only if the id is available
+    enabled: !!id, // chỉ chạy khi có id
   });
 
   const handleBackToMyOrder = () => {

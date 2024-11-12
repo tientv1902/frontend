@@ -1,4 +1,4 @@
-/* Toàn bộ container của trang */
+
 .success-order-page-container {
   padding: 20px;
   max-width: 1500px;
@@ -8,7 +8,6 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Box chọn phương thức */
 .success-order-method-box {
   padding: 20px;
   border: 1px solid #d9d9d9;
@@ -18,7 +17,6 @@
   margin-bottom: 20px;
 }
 
-/* Tiêu đề từng phần */
 .success-order-method-box h2 {
   font-size: 1.5em;
   font-weight: 600;
@@ -26,13 +24,12 @@
   margin-bottom: 15px;
 }
 
-/* Phương thức thanh toán và giao hàng */
 .success-order-method-item {
-  display: inline-flex; /* Để giới hạn kích thước nền */
+  display: inline-flex; 
   align-items: center;
   padding: 8px 12px;
-  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); /* Gradient nhẹ với màu cam và hồng nhạt */
-  border-radius: 12px; /* Góc tròn nhẹ */
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); 
+  border-radius: 12px; 
   font-size: 1.1em;
   color: #444;
   font-weight: 500;
@@ -40,18 +37,17 @@
 }
 
 .success-order-method-item-1 {
-  display: inline-flex; /* Để giới hạn kích thước nền */
+  display: inline-flex; 
   align-items: center;
   padding: 8px 12px;
-  background: linear-gradient(135deg, #d3e4cd 0%, #99d98c 100%); /* Gradient nhẹ với màu cam và hồng nhạt */
-  border-radius: 12px; /* Góc tròn nhẹ */
+  background: linear-gradient(135deg, #d3e4cd 0%, #99d98c 100%); 
+  border-radius: 12px; 
   font-size: 1.1em;
   color: #444;
   font-weight: 500;
   margin-bottom: 10px;
 }
 
-/* Nút đặt hàng */
 .success-order-place-button {
   margin-top: 20px;
   width: 100%;
@@ -66,7 +62,6 @@
   background-color: #e0274b;
 }
 
-/* Các thành phần trong form */
 .success-order-form-item {
   margin-bottom: 16px;
 }
@@ -75,15 +70,14 @@
   color: #444;
 }
 
-/* Đoạn văn bản nhấn mạnh */
 .success-order-summary-box strong {
   color: #222;
   font-weight: bold;
 }
 
 .success-order-product-image {
-  width: 50px; /* Điều chỉnh kích thước chiều rộng */
-  height: 50px; /* Điều chỉnh kích thước chiều cao */
+  width: 50px;
+  height: 50px; 
   object-fit: cover;
   border-radius: 4px;
   margin-right: 10px;

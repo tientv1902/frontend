@@ -7,7 +7,7 @@ const DefaultComponent = ({ children, isShowFooter }) => {
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <HeaderComponent />
       <main style={{ flex: 1 }}>{children}</main>
-      {isShowFooter && <FooterComponent />} {/* Kiểm tra và hiển thị footer nếu có isShowFooter */}
+      {isShowFooter && <FooterComponent />} 
     </div>
   );
 };

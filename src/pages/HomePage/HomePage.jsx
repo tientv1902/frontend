@@ -8,18 +8,17 @@ import slider5 from '../../assets/images/slider5.png';
 import CartComponent from '../../components/CartComponent/CartComponent';
 import { useQuery } from '@tanstack/react-query';
 import * as ProductService from '../../services/ProductService';
-import './HomePage.css'; // Nhập tệp CSS
+import './HomePage.css'; 
 import { Button } from 'antd';
 import { useSelector } from 'react-redux';
 import Loading from '../../components/LoadingComponent/Loading';
 import { useDebounceHook } from '../../hooks/useDebounceHook';
-import FooterComponent from '../../components/FooterComponent/FooterComponent';
 
 const HomePage = () => {
   const searchProduct = useSelector((state) => state?.product?.search);
   const useSearchHook = useDebounceHook(searchProduct, 500);
   const [limit, setLimit] = useState(5);
-  const [pending, setPending] = useState(false);
+  const [pending] = useState(false);
   const [categoryProduct, setCategoryProduct] = useState([]);
 
   const fetchProductAll = async (context) => {

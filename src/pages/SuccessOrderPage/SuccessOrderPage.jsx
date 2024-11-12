@@ -10,7 +10,6 @@ const SuccessOrderPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
   
-  // Lấy dữ liệu từ PaymentPage
   const {
     selectedProducts,
     userDetails,

@@ -26,7 +26,6 @@ export const orderSlice = createSlice({
         itemOrder.amount += orderItem.amount;
       } else {
         state.orderItems.push(orderItem);
-        console.log('orderitem',orderItem)
       }
     },
     updateOrderItemQuantity: (state, action) => {

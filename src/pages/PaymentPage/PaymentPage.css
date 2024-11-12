@@ -1,14 +1,13 @@
-/* Toàn bộ container của trang */
+
 .payment-page-container {
   padding: 20px;
-  max-width: 1500px; /* Giới hạn chiều rộng phù hợp */
+  max-width: 1500px; 
   margin: 40px auto;
   background-color: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Các box chọn phương thức và tóm tắt đơn hàng */
 .payment-page-box, .payment-page-summary-box {
   padding: 20px;
   border: 1px solid #d9d9d9;
@@ -18,7 +17,6 @@
   margin-bottom: 20px;
 }
 
-/* Tiêu đề từng phần */
 .payment-page-box h2, .payment-page-summary-box h2 {
   font-size: 1.5em;
   font-weight: 600;
@@ -26,7 +24,6 @@
   margin-bottom: 15px;
 }
 
-/* Định dạng sản phẩm trong danh sách đơn hàng */
 .payment-page-product-item {
   display: flex;
   align-items: center;
@@ -37,7 +34,6 @@
   border-bottom: none;
 }
 
-/* Ảnh sản phẩm */
 .payment-page-product-image {
   width: 60px;
   height: 60px;
@@ -46,7 +42,6 @@
   margin-right: 16px;
 }
 
-/* Tiêu đề và mô tả sản phẩm */
 .payment-page-item-meta-title {
   font-size: 1.1em;
   font-weight: 500;
@@ -57,7 +52,6 @@
   font-size: 0.9em;
 }
 
-/* Tóm tắt thanh toán */
 .payment-page-summary-row {
   margin: 10px 0;
   display: flex;
@@ -70,7 +64,6 @@
   color: #222;
 }
 
-/* Nút đặt hàng */
 .payment-page-place-order-button {
   margin-top: 20px;
   width: 100%;
@@ -85,13 +78,11 @@
   background-color: #e0274b;
 }
 
-/* Tiêu đề trong modal */
 .payment-page-modal-title {
   font-size: 20px;
   font-weight: bold;
 }
 
-/* Các thành phần trong form */
 .payment-page-form-item {
   margin-bottom: 16px;
 }
@@ -100,7 +91,6 @@
   color: #444;
 }
 
-/* Điều chỉnh màu nút khi hover */
 .payment-page-button-primary {
   background-color: #ff1827;
   border-color: #ff1827;
@@ -110,13 +100,11 @@
   border-color: #e0274b;
 }
 
-/* Đoạn văn bản nhấn mạnh */
 .payment-page-box, .payment-page-summary-box strong {
   color: #222;
   font-weight: bold;
 }
 
-/* Cấu hình chung cho các tùy chọn */
 .payment-page-method-item {
   display: flex;
   align-items: center;
@@ -129,21 +117,18 @@
   color: #444;
 }
 
-/* Cấu hình nền gradient cho các tùy chọn giao hàng */
 .payment-page-shipping-options .ant-radio-wrapper {
   background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
   padding: 10px;
   border-radius: 8px;
 }
 
-/* Cấu hình nền gradient cho phương thức thanh toán */
 .payment-page-payment-options .ant-radio-wrapper {
   background: linear-gradient(135deg, #d3e4cd 0%, #99d98c 100%);
   padding: 10px;
   border-radius: 8px;
 }
 
-/* Thêm hiệu ứng hover để nổi bật */
 .payment-page-shipping-options .ant-radio-wrapper:hover,
 .payment-page-payment-options .ant-radio-wrapper:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);

@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as UserService from '../../services/UserService';
 import { resetUser } from '../../redux/slices/userSlice';
 import Loading from '../LoadingComponent/Loading';
-import './HeaderComponent.css'; // Import file CSS
+import './HeaderComponent.css'; 
 import { searchProduct } from '../../redux/slices/productSlice';
 import { FaUser, FaCogs, FaClipboardList, FaSignOutAlt } from 'react-icons/fa';
 
@@ -95,7 +95,7 @@ const HeaderComponent = () => {
           textButton="Search" 
           placeholder="Input Search"
           onChange={onSearch}
-
+          value={search} 
           />
         </Col>
         <Col span={6} style={{ display: 'flex', gap: '44px', alignItems: 'center' }}>

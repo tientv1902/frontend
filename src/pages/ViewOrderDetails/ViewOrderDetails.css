@@ -1,4 +1,4 @@
-/* Main Container */
+
 .view-order-page-container {
     padding: 20px;
     max-width: 1500px;
@@ -8,7 +8,7 @@
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
 }
 
-/* Method Box Styling */
+
 .view-order-method-box {
     padding: 20px;
     border: 1px solid #e0e0e0;
@@ -37,7 +37,7 @@
     margin-bottom: 12px;
 }
 
-/* Gradient backgrounds for method items */
+
 .view-order-method-item {
     background: linear-gradient(135deg, #ffebda 0%, #fcaa7c 100%);
 }
@@ -45,7 +45,6 @@
     background: linear-gradient(135deg, #e1f4d7 0%, #8bc34a 100%);
 }
 
-/* Summary Box Styling */
 .view-order-summary {
     padding: 20px;
     border: 1px solid #e0e0e0;
@@ -62,7 +61,6 @@
     margin-bottom: 10px;
 }
 
-/* Product Item */
 .view-order-product-item {
     display: flex;
     align-items: center;
@@ -88,7 +86,6 @@
     color: #777;
 }
 
-/* Summary Row */
 .view-order-summary-row {
     display: flex;
     justify-content: space-between;
@@ -108,7 +105,6 @@
     font-size: 1.1em;
 }
 
-/* Back Button */
 .view-order-back-to-home-button {
     margin-top: 20px;
     width: 100%;

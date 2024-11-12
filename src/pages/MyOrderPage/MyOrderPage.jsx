@@ -35,7 +35,6 @@ const MyOrderPage = () => {
       await OrderService.deleteOrderDetails(orderId, user?.access_token);
       message.success("Order canceled successfully");
       
-      // Refetch the orders list
       queryClient.invalidateQueries("orders");
     } catch (error) {
       message.error("Failed to cancel order");

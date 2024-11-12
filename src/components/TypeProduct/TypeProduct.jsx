@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import './TypeProduct.css';  // Importing the CSS file
+import './TypeProduct.css';  
 
 const TypeProduct = ({ name }) => {
   const navigate = useNavigate()

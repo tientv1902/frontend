@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './SignInPage.css'; // Import the CSS file
 import InputForm from '../../components/InputForm/InputForm';
 import ButtonComponent from '../../components/ButtonComponent/ButtonComponent';
-import { Image } from 'antd';
+import { Image, notification } from 'antd'; // Import notification
 import { EyeFilled, EyeInvisibleFilled } from '@ant-design/icons';
 import imageLogo from '../../assets/images/logo-login.png';
 import imageLogin from '../../assets/images/background-login2.png';
@@ -18,9 +18,10 @@ const SignInPage = () => {
   const [isShowPassword, setIsShowPassword] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState(''); // Lưu thông báo lỗi
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const location = useLocation()
+  const location = useLocation();
 
   const mutation = useMutationHooks((data) => UserService.loginUser(data));
   const { data, isPending, isSuccess } = mutation;
@@ -30,12 +31,12 @@ const SignInPage = () => {
       const res = await UserService.getDetailsUser(id, token);
       dispatch(updateUser({ ...res?.data, access_token: token }));
     };
-
+  
     if (isSuccess) {
-      if(location?.state) {
-        navigate(location?.state)
-      }else{
-        navigate('/');    
+      if (location?.state) {
+        navigate(location?.state);
+      } else {
+        navigate('/');
       }
       localStorage.setItem('access_token', JSON.stringify(data?.access_token));
       if (data?.access_token) {
@@ -44,8 +45,9 @@ const SignInPage = () => {
           handleGetDetailsUser(decoded?.id, data?.access_token);
         }
       }
-    }
-  }, [isSuccess, navigate, data?.access_token, dispatch]);
+    } 
+  }, [isSuccess, navigate, data?.access_token, dispatch, location?.state])
+  
 
   const togglePasswordVisibility = () => {
     setIsShowPassword(!isShowPassword);
@@ -64,11 +66,31 @@ const SignInPage = () => {
   };
 
   const handleSignIn = () => {
+    setErrorMessage(''); // Reset lỗi khi người dùng bắt đầu đăng nhập lại
     mutation.mutate({
       email,
       password,
     });
   };
+
+  // Kiểm tra nếu có lỗi, không chuyển trang
+  useEffect(() => {
+    if (data?.status === 'ERR') {
+      // Nếu có lỗi, không thực hiện chuyển trang
+      navigate('/sign-in');
+      notification.error({
+        message: 'Login Failed',
+        description: data?.message || 'Đăng nhập không thành công. Vui lòng thử lại.',
+        placement: 'bottomRight',
+      });
+    }else if (data?.status === 'Ok'){
+      notification.success({
+        message: 'Login Success',
+        description: data?.message || 'Đăng nhập thành công.',
+        placement: 'bottomRight',
+      });
+    }
+  }, [data?.status, navigate,data?.message]);
 
   return (
     <div
@@ -107,7 +129,10 @@ const SignInPage = () => {
               onChange={handleOnChangePassword}
             />
           </div>
-          {data?.status === 'ERR' && <span style={{ color: 'red' }}>{data.message}</span>}
+
+          {/* Hiển thị thông báo lỗi nếu có */}
+          {errorMessage && <span style={{ color: 'red', marginTop: '10px' }}>{errorMessage}</span>}
+
           <Loading isPending={isPending}>
             <ButtonComponent
               disabled={!email.length || !password.length}
@@ -125,6 +150,7 @@ const SignInPage = () => {
               styleTextButton={{ color: '#fff', fontSize: '15px', fontWeight: 700 }}
             />
           </Loading>
+
           <p>
             <span className="text-light">Forgot Password?</span>
           </p>

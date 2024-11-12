@@ -1,0 +1,88 @@
+
+.ant-table {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  
+  .ant-table-thead > tr > th {
+    background-color: #f5f5f5;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+    padding: 12px 16px;
+    font-size: 16px;
+  }
+  
+  .ant-table-tbody > tr > td {
+    text-align: center;
+    padding: 12px 16px;
+    color: #555;
+    font-size: 14px;
+  }
+  
+  .ant-table-tbody > tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .ant-table-tbody > tr:nth-child(odd) {
+    background-color: #ffffff;
+  }
+  
+  .ant-table-tbody > tr:hover {
+    background-color: #eaeaea;
+    cursor: pointer;
+  }
+  
+  .ant-table-tbody > tr > td[data-index="isPaid"] {
+    font-weight: bold;
+    color: #4caf50;
+  }
+  
+  .ant-table-tbody > tr > td[data-index="isPaid"]:not(:hover) {
+    color: #f44336;
+  }
+  
+  .ant-pagination-item {
+    background-color: #ffffff;
+    border-radius: 4px;
+    color: #333;
+  }
+  
+  .ant-pagination-item:hover {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+
+  .ant-table .ant-spin-dot {
+    display: block;
+    margin: 0 auto;
+  }
+  
+
+  .ant-table .ant-spin-container {
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #888;
+  }
+  
+
+  @media (max-width: 768px) {
+    .ant-table-thead > tr > th, 
+    .ant-table-tbody > tr > td {
+      font-size: 12px;
+      padding: 10px;
+    }
+    
+    .ant-table {
+      margin-top: 10px;
+    }
+  }
+  

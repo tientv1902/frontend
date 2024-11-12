@@ -11,7 +11,7 @@ export const useDebounceHook = (value, delay) => {
         return () => {
             clearTimeout(handle)
         };
-    }, [value])
+    }, [value, delay])
     
     return valueDebounce
 }

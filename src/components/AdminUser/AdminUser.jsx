@@ -138,7 +138,7 @@ const AdminUser = (props) => {
   };
 
   const fetchGetDetailsUser = async (rowSelected) => {
-    setIsPendingUpdate(true); // Bắt đầu trạng thái pending
+    setIsPendingUpdate(true);
     try {
       const res = await UserService.getDetailsUser(rowSelected);
       if (res?.data) {
@@ -152,7 +152,7 @@ const AdminUser = (props) => {
     } catch (error) {
       console.error("Error fetching user details:", error);
     } finally {
-      setIsPendingUpdate(false); // Kết thúc trạng thái pending
+      setIsPendingUpdate(false); 
     }
   };
 
@@ -172,9 +172,9 @@ const AdminUser = (props) => {
     if (rowSelected) {
       setIsPendingUpdate(true);
       fetchGetDetailsUser(rowSelected);
-      console.log("rowSelected in handleDetailsUser:", rowSelected); // Kiểm tra giá trị
+      console.log("rowSelected in handleDetailsUser:", rowSelected); 
     }
-    setRowSelected(rowSelected); // Đảm bảo bạn đang lưu rowSelected
+    setRowSelected(rowSelected);
     setIsOpenModal(true);
   };
   

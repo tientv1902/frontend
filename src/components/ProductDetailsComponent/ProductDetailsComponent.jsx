@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Col, Image, Row } from 'antd';
+import { Col, Image, Row, notification } from 'antd';
 import { StarFilled, PlusOutlined, MinusOutlined } from '@ant-design/icons';
 import ButtonComponent from '../ButtonComponent/ButtonComponent';
 import * as ProductService from '../../services/ProductService';
@@ -8,7 +8,7 @@ import Loading from '../LoadingComponent/Loading';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { orderProduct } from '../../redux/slices/orderSlice';
-import './ProductDetailsComponent.css'; // Import the CSS file
+import './ProductDetailsComponent.css'; 
 
 const ProductDetailsComponent = () => {
     const { id: productId } = useParams();
@@ -78,6 +78,37 @@ const ProductDetailsComponent = () => {
                     countInStock: productDetails?.countInStock
                 }
             }));
+
+            notification.success({
+                message: 'Success!',
+                description: `${productDetails?.name} has been added to your cart.`,
+                placement: 'bottomRight',
+            });
+        }
+    };
+
+    const handleAddToCart = () => {
+        if (!user?.id) {
+            navigate('/sign-in', { state: location?.pathname });
+        } else {
+            dispatch(orderProduct({
+                orderItem: {
+                    name: productDetails?.name,
+                    amount: numProduct,
+                    image: productDetails?.image,
+                    discount: productDetails?.discount || 0,
+                    price: productDetails?.price,
+                    product: productDetails?._id,
+                    countInStock: productDetails?.countInStock
+                }
+            }));
+
+            // Show success notification
+            notification.success({
+                message: 'Added to Cart',
+                description: `${productDetails?.name} has been successfully added to your cart.`,
+                placement: 'bottomRight',
+            });
         }
     };
 
@@ -106,7 +137,6 @@ const ProductDetailsComponent = () => {
                     </div>
                     <div className="wrapper-address-product">
                         <span className="address">Deliver to: {user?.address} - {user?.city}</span>
-                        
                     </div>
                     <div style={{ margin: '10px 0 20px', padding: '10px 0', borderTop: '1px solid #e5e5e5', borderBottom: '1px solid #e5e5e5' }}>
                         <div style={{ marginBottom: '10px' }}>Quantity</div>
@@ -149,8 +179,9 @@ const ProductDetailsComponent = () => {
                                 border: '1px solid rgb(13, 92, 182)',
                                 borderRadius: '4px'
                             }}
-                            textButton={'Mua'}
+                            textButton={'Add To Cart'}
                             styleTextButton={{ color: 'rgb(13, 92, 182)', fontSize: '15px' }}
+                            onClick={handleAddToCart}
                         />
                     </div>
                 </Col>

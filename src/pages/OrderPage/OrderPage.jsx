@@ -45,7 +45,6 @@ const OrderPage = () => {
 
   const handleDelete = (productId) => {
     dispatch(orderRemove({ idProduct: productId }));
-    // Update selectedItems after deletion
     setSelectedItems((prevSelected) => prevSelected.filter((id) => id !== productId));
   };
 
@@ -238,10 +237,6 @@ const OrderPage = () => {
                               ${(orderItem.price * (1 - (orderItem.discount / 100))).toFixed(2)} 
                             </Text>
                             <Text strong className="discount">{orderItem?.discount}% Discount</Text>
-                            {/* <br />
-                        <Text>Số lượng còn lại: {order.countInStock}</Text>
-                        <br />
-                        <Text>Đã bán: {order.selled}</Text> */}
                           </>
                         ) : (
                           <Text strong className="current-price">

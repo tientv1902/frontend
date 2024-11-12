@@ -108,8 +108,6 @@ const AdminProduct = (props) => {
 
   const { data: products, isPending: isPendingProducts, refetch } = useQuery({queryKey: ['products'], queryFn: getAllProducts});
 
-  console.log("product", products)
-
   const showModal = () => {
     setIsModalVisible(true); 
   };
@@ -238,7 +236,6 @@ const AdminProduct = (props) => {
     }
   },[rowSelected])
 
-  console.log("stateProductDetails", stateProductDetails)
 
   const handleDetailsProduct = () => {
     if(rowSelected) {
@@ -246,7 +243,6 @@ const AdminProduct = (props) => {
       fetchGetDetailsProduct(rowSelected)
     }
     setIsOpenModal(true)
-    console.log("rowSelected", rowSelected)
   }
 
   useEffect(() => { 

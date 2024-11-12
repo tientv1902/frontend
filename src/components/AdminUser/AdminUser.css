@@ -6,36 +6,36 @@
   }
   
   .title {
-    margin-bottom: 16px; /* Space below the title */
-    font-weight: bold; /* Bold title */
-    color: #333; /* Dark color for title */
+    margin-bottom: 16px;
+    font-weight: bold; 
+    color: #333; 
   }
   
   .add-user-button {
-    margin-bottom: 16px; /* Space below the button */
-    font-size: 16px; /* Adjust font size */
+    margin-bottom: 16px; 
+    font-size: 16px; 
   }
   
   .action-button {
-    padding: 0; /* Remove default padding for link buttons */
-    margin: 0 8px; /* Space between link buttons */
-    font-size: 14px; /* Adjust font size for action buttons */
+    padding: 0;
+    margin: 0 8px; 
+    font-size: 14px;
   }
   
   .ant-table {
-    background: #fff; /* Background for the table */
+    background: #fff; 
   }
   
   .ant-table th {
-    background: #f0f0f0; /* Header background color */
-    color: #333; /* Header text color */
+    background: #f0f0f0; 
+    color: #333; 
   }
   
   .ant-table td {
-    color: #666; /* Body text color */
+    color: #666; 
   }
   
   .ant-btn-link:hover {
-    text-decoration: underline; /* Underline on hover */
+    text-decoration: underline; 
   }
   
