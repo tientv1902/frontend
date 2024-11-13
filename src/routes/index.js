@@ -1,4 +1,6 @@
+import AboutUsPage from "../pages/AboutUsPage/AboutUsPage";
 import AdminPage from "../pages/AdminPage/AdminPage";
+import CustomerSupport from "../pages/CustomerSupport/CustomerSupport";
 import HomePage from "../pages/HomePage/HomePage";
 import MyOrderPage from "../pages/MyOrderPage/MyOrderPage";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
@@ -92,6 +94,14 @@ export const routes = [
         isShowHeader: false,
         isShowFooter: false,
         isPrivate: true,
+    },
+    {
+        path: '/AboutUs',
+        page: AboutUsPage,
+    },
+    {
+        path: '/CustomerSupport',
+        page: CustomerSupport,
     },
     {
         path: '*',

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import './SignInPage.css'; // Import the CSS file
+import './SignInPage.css'; 
 import InputForm from '../../components/InputForm/InputForm';
 import ButtonComponent from '../../components/ButtonComponent/ButtonComponent';
-import { Image, notification } from 'antd'; // Import notification
+import { Image, notification } from 'antd'; 
 import { EyeFilled, EyeInvisibleFilled } from '@ant-design/icons';
 import imageLogo from '../../assets/images/logo-login.png';
 import imageLogin from '../../assets/images/background-login2.png';
@@ -13,12 +13,13 @@ import Loading from '../../components/LoadingComponent/Loading';
 import { jwtDecode } from 'jwt-decode';
 import { useDispatch } from 'react-redux';
 import { updateUser } from '../../redux/slices/userSlice';
+import { GoogleLogin } from '@react-oauth/google';
 
 const SignInPage = () => {
   const [isShowPassword, setIsShowPassword] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [errorMessage, setErrorMessage] = useState(''); // Lưu thông báo lỗi
+  const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const location = useLocation();
@@ -66,17 +67,15 @@ const SignInPage = () => {
   };
 
   const handleSignIn = () => {
-    setErrorMessage(''); // Reset lỗi khi người dùng bắt đầu đăng nhập lại
+    setErrorMessage(''); 
     mutation.mutate({
       email,
       password,
     });
   };
 
-  // Kiểm tra nếu có lỗi, không chuyển trang
   useEffect(() => {
     if (data?.status === 'ERR') {
-      // Nếu có lỗi, không thực hiện chuyển trang
       navigate('/sign-in');
       notification.error({
         message: 'Login Failed',
@@ -91,6 +90,43 @@ const SignInPage = () => {
       });
     }
   }, [data?.status, navigate,data?.message]);
+
+  const handleGoogleLoginSuccess = async (response) => {
+    try {
+      const googleToken = response.credential;
+      const data = await UserService.loginGGUser({ token: googleToken });
+  
+      dispatch(updateUser(data.user));
+  
+      localStorage.setItem('access_token', JSON.stringify(data.access_token));
+  
+      notification.success({
+        message: 'Login Success',
+        description: 'Đăng nhập thành công với Google',
+      });
+  
+      navigate('/'); 
+  
+      setTimeout(() => {
+        window.location.reload();
+      }, 500); 
+    } catch (error) {
+      notification.error({
+        message: 'Login Failed',
+        description: 'Đăng nhập Google không thành công',
+      });
+    }
+  };
+  
+ 
+
+  // Xử lý đăng nhập Google thất bại
+  const handleGoogleLoginFailure = () => {
+    notification.error({
+      message: 'Login Failed',
+      description: 'Đăng nhập Google không thành công',
+    });
+  };
 
   return (
     <div
@@ -150,7 +186,10 @@ const SignInPage = () => {
               styleTextButton={{ color: '#fff', fontSize: '15px', fontWeight: 700 }}
             />
           </Loading>
-
+          <GoogleLogin
+            onSuccess={handleGoogleLoginSuccess}
+            onError={handleGoogleLoginFailure}
+          />
           <p>
             <span className="text-light">Forgot Password?</span>
           </p>
