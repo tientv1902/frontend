@@ -1,0 +1,91 @@
+/* Wrapper cho trang Legal */
+.legal-page {
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Tiêu đề của trang Legal */
+  .page-title {
+    text-align: center;
+    font-size: 42px;
+    margin-bottom: 30px;
+    color: #333;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+  
+  /* Styling cho mỗi phần thông tin */
+  .section {
+    margin-bottom: 50px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .section h2 {
+    font-size: 30px;
+    color: #1890ff;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .section p {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.8;
+    text-align: justify;
+    margin-bottom: 15px;
+  }
+  
+  /* Nút Back to Home */
+  .back-home-button {
+    padding: 12px 25px;
+    font-size: 18px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  /* Hiệu ứng hover cho nút */
+  .back-home-button:hover {
+    background-color: #45a049;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Responsive styling */
+  @media (max-width: 768px) {
+    .legal-page {
+      padding: 20px;
+    }
+  
+    .page-title {
+      font-size: 32px;
+    }
+  
+    .section h2 {
+      font-size: 24px;
+    }
+  
+    .section p {
+      font-size: 16px;
+    }
+  
+    .back-home-button {
+      font-size: 16px;
+      padding: 10px 20px;
+    }
+  }
+  

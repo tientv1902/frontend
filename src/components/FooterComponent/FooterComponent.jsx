@@ -6,15 +6,18 @@ import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import './FooterComponent.css'; 
 
 const FooterComponent = () => {
-  const navigate = useNavigate(); // Initialize navigate function
+  const navigate = useNavigate(); 
 
-  // Function to handle navigation to AboutUs page
   const goToAboutUs = () => {
     navigate('/AboutUs');
   };
 
   const goToCustomerSupport = () => {
     navigate('/CustomerSupport');
+  };
+
+  const goToLegal = () => {
+    navigate('/Legal');
   };
 
   return (
@@ -44,9 +47,9 @@ const FooterComponent = () => {
           <span className="footer-text">
             <strong>Legal</strong>
           </span>
-          <button className="footer-link">Terms of Service</button>
-          <button className="footer-link">Privacy Policy</button>
-          <button className="footer-link">Cookie Policy</button>
+          <button className="footer-link" onClick={goToLegal}>Terms of Service</button>
+          <button className="footer-link" onClick={goToLegal}>Privacy Policy</button>
+          <button className="footer-link" onClick={goToLegal}>Cookie Policy</button>
         </Col>
 
         <Col span={6} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>

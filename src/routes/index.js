@@ -2,6 +2,7 @@ import AboutUsPage from "../pages/AboutUsPage/AboutUsPage";
 import AdminPage from "../pages/AdminPage/AdminPage";
 import CustomerSupport from "../pages/CustomerSupport/CustomerSupport";
 import HomePage from "../pages/HomePage/HomePage";
+import Legal from "../pages/Legal/Legal";
 import MyOrderPage from "../pages/MyOrderPage/MyOrderPage";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 import OrderPage from "../pages/OrderPage/OrderPage";
@@ -102,6 +103,10 @@ export const routes = [
     {
         path: '/CustomerSupport',
         page: CustomerSupport,
+    },
+    {
+        path: '/Legal',
+        page: Legal,
     },
     {
         path: '*',
