@@ -193,8 +193,8 @@ const OrderPage = () => {
   return (
     <div className="order-page">
       <Title level={2} className="page-title">Shopping Cart</Title>
-      <Row gutter={24}>
-        <Col span={16}>
+      <Row gutter={[16, 16]}>
+      <Col xs={24} sm={24} md={16} lg={16}>
           <Card className="product-card">
           <div className="select-all">
             <Checkbox 
@@ -272,7 +272,7 @@ const OrderPage = () => {
             ))}
           </Card>
         </Col>
-        <Col span={8}>
+        <Col xs={24} sm={24} md={8} lg={8}>
           <Card className="order-summary">
             <div className="shipping-info">
               <Text className="address"><EnvironmentOutlined /> Delivery to: {`${user?.address}, ${user?.city}`}</Text>

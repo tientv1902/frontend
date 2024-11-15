@@ -1,13 +1,12 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
-import './Legal.css'; // Import file CSS
+import { useNavigate } from 'react-router-dom'; 
+import './Legal.css'; 
 
 const Legal = () => {
-  const navigate = useNavigate(); // Khởi tạo hàm navigate
+  const navigate = useNavigate();
 
-  // Hàm để điều hướng về trang chủ
   const goHome = () => {
-    navigate('/'); // Điều hướng về trang chủ (chỉnh lại đường dẫn nếu cần)
+    navigate('/'); 
   };
 
   return (
@@ -35,7 +34,6 @@ const Legal = () => {
         </p>
       </div>
 
-      {/* Nút quay lại trang chủ */}
       <div style={{ textAlign: 'center', marginTop: '20px' }}>
         <button className="back-home-button" onClick={goHome}>Back to Home</button>
       </div>

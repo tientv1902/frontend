@@ -10,7 +10,6 @@ const ProductTable = ({ products = [], selectionType = 'checkbox', isPending = f
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [priceFilter, setPriceFilter] = useState('All');
 
-
   const categories = Array.from(new Set(products.map(product => product.type)));
 
   const filteredProducts = products.filter((product) => {
@@ -30,12 +29,14 @@ const ProductTable = ({ products = [], selectionType = 'checkbox', isPending = f
       dataIndex: 'name',
       key: 'name',
       sorter: (a, b) => a.name.length - b.name.length,
+      ellipsis: true, 
     },
     {
       title: 'Price',
       dataIndex: 'price',
       key: 'price',
       sorter: (a, b) => a.price - b.price,
+      ellipsis: true, 
     },
     {
       title: 'Rating Scale',
@@ -65,6 +66,7 @@ const ProductTable = ({ products = [], selectionType = 'checkbox', isPending = f
       title: 'Category',
       dataIndex: 'type',
       key: 'type',
+      ellipsis: true, 
     },
     {
       title: 'Image',
@@ -131,6 +133,7 @@ const ProductTable = ({ products = [], selectionType = 'checkbox', isPending = f
         columns={columns} 
         dataSource={dataSource} 
         loading={isPending} 
+        scroll={{ x: 'max-content' }}  
         {...props}
       />
     </div>

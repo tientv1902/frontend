@@ -39,7 +39,6 @@ const PaymentPage = () => {
 
   const shippingFee = shippingMethod === "express" ? selectedProducts.length * 5 : selectedProducts.length * 2;
   const totalAmount = subtotal + shippingFee;
-  console.log(totalAmount)
 
   const handlePlaceOrder = () => {
     const itemsPrice = subtotal;
@@ -62,6 +61,7 @@ const PaymentPage = () => {
           address: userDetails.address || user?.address,
           phone: userDetails.phone || user?.phone,
           city: userDetails.city || user?.city,
+          shippingMethod: shippingMethod,
           paymentMethod: paymentMethod,
           itemsPrice: itemsPrice,
           shippingPrice: shippingFee,
@@ -106,6 +106,7 @@ const PaymentPage = () => {
         address: userDetails.address || user?.address,
         phone: userDetails.phone || user?.phone,
         city: userDetails.city || user?.city,
+        shippingMethod: shippingMethod,
         paymentMethod: "paypal",
         itemsPrice: itemsPrice,
         shippingPrice: shippingFee,
@@ -154,26 +155,26 @@ const PaymentPage = () => {
         <Title level={2} className="page-title">Payment</Title>
         <Row gutter={24}>
           <Col xs={24} md={10}>
-            <div className="payment-page-box">
-              <Title level={2}>Phương thức giao hàng</Title>
+            <div className="payment-page-box payment-page-shipping-options">
+              <Title level={2}>Shipping Method</Title>
               <Radio.Group onChange={(e) => setShippingMethod(e.target.value)} value={shippingMethod}>
-                <Radio value="standard">Giao hàng tiết kiệm</Radio>
-                <Radio value="express">Giao hàng nhanh</Radio>
+                <Radio value="standard">Standard Shipping</Radio>
+                <Radio value="express">Express Shipping</Radio>
               </Radio.Group>
             </div>
 
-            <div className="payment-page-box" style={{ marginTop: "20px" }}>
-              <Title level={2}>Phương thức thanh toán</Title>
+            <div className="payment-page-box payment-page-payment-options" style={{ marginTop: "20px" }}>
+              <Title level={2}>Payment Method</Title>
               <Radio.Group onChange={(e) => setPaymentMethod(e.target.value)} value={paymentMethod}>
-                <Radio value="cash">Thanh toán bằng tiền mặt</Radio>
-                <Radio value="paypal">Thanh toán bằng Paypal</Radio>
+                <Radio value="cash">Cash Payment</Radio>
+                <Radio value="paypal">Pay with Paypal</Radio>
               </Radio.Group>
             </div>
           </Col>
 
           <Col xs={24} md={14}>
             <div className="payment-page-summary-box">
-              <Title level={2}>Tóm tắt đơn hàng</Title>
+              <Title level={2}>Order Summary</Title>
               <Divider />
               <Text strong>Name: <Text style={{ fontWeight: "normal" }}>{userDetails.name}</Text></Text>
               <br />
@@ -187,62 +188,56 @@ const PaymentPage = () => {
                 itemLayout="horizontal"
                 dataSource={selectedProducts}
                 renderItem={(item) => (
-                  <List.Item>
-                    <img src={item.image} alt="Product" style={{ width: 60, height: 60, marginRight: 10 }} />
+                  <List.Item className="payment-page-product-item">
+                    <img src={item.image} alt="Product" className="payment-page-product-image" />
                     <List.Item.Meta
-                      title={item.name}
-                      description={`Price: $${item.price.toFixed(2)} | Quantity: ${item.amount} | Discount: ${item.discount}%`}
+                      title={<span className="payment-page-item-meta-title">{item.name}</span>}
+                      description={<span className="payment-page-item-meta-description">Price: ${item.price.toFixed(2)} | Quantity: {item.amount} | Discount: {item.discount}%</span>}
                     />
                     <Text strong>Total: ${(item.price * (1 - item.discount / 100) * item.amount).toFixed(2)}</Text>
                   </List.Item>
                 )}
               />
               <Divider />
-              <Row justify="space-between">
+              <Row justify="space-between" className="payment-page-summary-row">
                 <Text strong>Shipping Fee:</Text>
                 <Text>{shippingFee.toFixed(2)}$</Text>
               </Row>
-              <Row justify="space-between">
+              <Row justify="space-between" className="payment-page-summary-row">
                 <Text strong>Total Amount:</Text>
                 <Text strong>{totalAmount.toFixed(2)}$</Text>
               </Row>
 
               {paymentMethod === "paypal" && paypalClientId && (
                 <PayPalScriptProvider options={{ clientId: paypalClientId, currency: "USD" }}>
-                <PayPalButtons
-                  style={{ layout: "vertical" }}
-                  createOrder={(data, actions) => {
-                    return actions.order.create({
-                      purchase_units: [{
-                        amount: {
-                          value: totalAmount.toFixed(2),
-                        },
-                      }],
-                    });
-                  }}
-                  onApprove={(data, actions) => {
-                    return actions.order.capture().then((details) => {
-                      onSuccessPaypal(details);
-                    });
-                  }}
-                  onError={(err) => {
-                    console.error('Error processing PayPal transaction', err);
-                    message.error("Thanh toán thất bại. Vui lòng thử lại.");
-                  }}
-                />
-              </PayPalScriptProvider>
-              
+                  <PayPalButtons
+                    style={{ layout: "vertical" }}
+                    createOrder={(data, actions) => {
+                      return actions.order.create({
+                        purchase_units: [{ amount: { value: totalAmount.toFixed(2) } }],
+                      });
+                    }}
+                    onApprove={(data, actions) => {
+                      return actions.order.capture().then((details) => {
+                        onSuccessPaypal(details);
+                      });
+                    }}
+                    onError={(err) => {
+                      console.error('Error processing PayPal transaction', err);
+                      message.error("Payment failed. Please try again.");
+                    }}
+                  />
+                </PayPalScriptProvider>
               )}
               {paymentMethod === "cash" && (
                 <Button
-                  className="payment-order-btn"
+                  className="payment-page-place-order-button"
                   size="large"
                   type="primary"
                   onClick={handlePlaceOrder}
                   loading={isPending}
-                  style={{ width: "100%" }}
                 >
-                  Thanh toán khi nhận hàng
+                  Cash on Delivery
                 </Button>
               )}
             </div>

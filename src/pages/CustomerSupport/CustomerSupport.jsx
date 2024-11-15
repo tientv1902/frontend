@@ -1,13 +1,12 @@
 import React from 'react';
-import './CustomerSupport.css'; // Import file CSS
+import './CustomerSupport.css'; 
 import { useNavigate } from 'react-router-dom';
 
 const CustomerSupport = () => {
-    const navigate = useNavigate(); // Initialize navigate function
+    const navigate = useNavigate(); 
 
-  // Function to handle navigation to the home page
   const goHome = () => {
-    navigate('/'); // Navigate to home page (adjust the path if needed)
+    navigate('/'); 
   };
   return (
     <div className="customer-support-page">
@@ -41,7 +40,6 @@ const CustomerSupport = () => {
         </p>
       </div>
 
-      {/* Back to Home Button */}
       <div style={{ textAlign: 'center', marginTop: '20px' }}>
         <button className="back-home-button" onClick={goHome}>Back to Home</button>
       </div>

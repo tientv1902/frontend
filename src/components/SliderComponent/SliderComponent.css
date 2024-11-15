@@ -1,71 +1,159 @@
+/* Định dạng chung cho Slider */
+.slider-wrapper {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
 
+/* Định dạng Wrapper của Slider */
 .wrapper-slider {
     position: relative;
-    border-radius: 10px; 
-    overflow: hidden; 
+    border-radius: 10px;
+    overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
+/* Kiểu dáng của các nút chuyển slide */
 .wrapper-slider .slick-arrow {
-    width: 40px; 
-    height: 40px; 
-    background-color: rgba(0, 0, 0, 0.5); 
-    border-radius: 50%; 
-    display: flex; 
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    display: flex;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
     z-index: 10;
 }
 
+/* Nút chuyển slide bên trái */
 .wrapper-slider .slick-arrow.slick-prev {
     left: 12px;
     top: 50%;
     transform: translateY(-50%);
 }
 
+/* Nút chuyển slide bên phải */
 .wrapper-slider .slick-arrow.slick-next {
     right: 12px;
     top: 50%;
     transform: translateY(-50%);
 }
 
+/* Kiểu chữ của mũi tên trong các nút */
 .wrapper-slider .slick-arrow::before {
-    font-size: 24px; 
-    color: #fff; 
+    font-size: 24px;
+    color: #fff;
 }
 
+/* Kiểu dáng của dots (chấm) */
 .wrapper-slider .slick-dots {
     z-index: 10;
-    bottom: 10px; 
+    bottom: 10px;
 }
 
+/* Chỉnh màu sắc của dots không hoạt động */
 .wrapper-slider .slick-dots li button::before {
-    color: rgba(255, 255, 255, 0.5); 
+    color: rgba(255, 255, 255, 0.5);
 }
 
+/* Dots đang hoạt động */
 .wrapper-slider .slick-dots li.active button::before {
     color: #fff;
 }
 
+/* Chỉnh sửa hình ảnh trong slider */
 .wrapper-slider .slick-slide img {
     border-radius: 10px;
-    transition: transform 0.3s; 
+    transition: transform 0.3s;
 }
 
+/* Khi hover vào slide, phóng to hình ảnh */
 .wrapper-slider .slick-slide:hover img {
-    transform: scale(1.05); 
+    transform: scale(1.05);
 }
 
-.slider-wrapper {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px; 
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+/* Điều chỉnh với kích thước màn hình nhỏ hơn */
+@media (max-width: 1200px) {
+    .slider-wrapper {
+        padding: 15px;
+    }
+
+    .wrapper-slider .slick-arrow {
+        width: 35px;
+        height: 35px;
+    }
+
+    .wrapper-slider .slick-arrow::before {
+        font-size: 20px;
+    }
+
+    .wrapper-slider .slick-slide img {
+        height: 240px;
+    }
 }
 
-.wrapper-slider {
-    position: relative;
-    border-radius: 10px; 
-    overflow: hidden; 
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+@media (max-width: 768px) {
+    .slider-wrapper {
+        padding: 10px;
+    }
+
+    .wrapper-slider .slick-arrow {
+        width: 30px;
+        height: 30px;
+    }
+
+    .wrapper-slider .slick-arrow::before {
+        font-size: 18px;
+    }
+
+    .wrapper-slider .slick-slide img {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .slider-wrapper {
+        padding: 10px;
+    }
+
+    .wrapper-slider .slick-arrow {
+        width: 25px;
+        height: 25px;
+    }
+
+    .wrapper-slider .slick-arrow::before {
+        font-size: 16px;
+    }
+
+    .wrapper-slider .slick-slide img {
+        height: 180px;
+    }
+
+    .wrapper-slider .slick-dots {
+        bottom: 5px;
+    }
+}
+/* Điều chỉnh với kích thước màn hình nhỏ hơn 320px */
+@media (max-width: 320px) {
+    .slider-wrapper {
+        padding: 5px; /* Giảm padding */
+    }
+
+    .wrapper-slider .slick-arrow {
+        width: 20px;
+        height: 20px; /* Giảm kích thước nút */
+    }
+
+    .wrapper-slider .slick-arrow::before {
+        font-size: 14px; /* Giảm kích thước mũi tên */
+    }
+
+    .wrapper-slider .slick-slide img {
+        height: 160px; /* Giảm chiều cao của ảnh */
+    }
+
+    .wrapper-slider .slick-dots {
+        bottom: 3px; /* Di chuyển chấm lên gần đáy hơn */
+    }
 }

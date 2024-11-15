@@ -1,101 +1,150 @@
-
 .admin-order-container {
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 20px auto;
-    max-width: 1200px;
-  }
-  
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 1200px;
+}
 
-  .title {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
 
-  .admin-order-container .ant-table {
-    margin-top: 20px;
-    border-radius: 8px;
-  }
-  
+.admin-order-container .ant-table {
+  margin-top: 20px;
+  border-radius: 8px;
+}
 
-  .admin-order-container .loading {
-    text-align: center;
-    font-size: 18px;
-    font-weight: bold;
-    color: #666;
-  }
-  
+.admin-order-container .loading {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #666;
+}
 
-  .admin-order-container .ant-table-thead > tr > th {
-    background-color: #f0f0f0;
-    color: #333;
-    font-weight: bold;
-    text-align: center;
-  }
-  
-  .admin-order-container .ant-table-tbody > tr > td {
-    text-align: center;
-    color: #555;
-    padding: 10px 15px;
-  }
-  
-  .admin-order-container .ant-table-tbody > tr:nth-child(even) {
-    background-color: #fafafa;
-  }
-  
+.admin-order-container .ant-table-thead > tr > th {
+  background-color: #f0f0f0;
+  color: #333;
+  font-weight: bold;
+  text-align: center;
+}
 
-  .admin-order-container .ant-table-tbody > tr:hover {
-    background-color: #f5f5f5;
-    cursor: pointer;
-  }
-  
+.admin-order-container .ant-table-tbody > tr > td {
+  text-align: center;
+  color: #555;
+  padding: 10px 15px;
+}
 
-  .admin-order-container .action-buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-  }
-  
-  .admin-order-container .action-buttons button {
-    padding: 8px 16px;
-    font-size: 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    border: none;
-    transition: background-color 0.3s ease;
-  }
-  
-  .admin-order-container .action-buttons button:hover {
-    background-color: #4caf50;
-    color: white;
-  }
-  
-  .admin-order-container .action-buttons .delete-btn {
-    background-color: #f44336;
-  }
-  
-  .admin-order-container .action-buttons .delete-btn:hover {
-    background-color: #d32f2f;
-  }
-  
+.admin-order-container .ant-table-tbody > tr:nth-child(even) {
+  background-color: #fafafa;
+}
 
-  @media (max-width: 768px) {
-    .admin-order-container {
+.admin-order-container .ant-table-tbody > tr:hover {
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+.admin-order-container .action-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.admin-order-container .action-buttons button {
+  padding: 8px 16px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.admin-order-container .action-buttons button:hover {
+  background-color: #4caf50;
+  color: white;
+}
+
+.admin-order-container .action-buttons .delete-btn {
+  background-color: #f44336;
+}
+
+.admin-order-container .action-buttons .delete-btn:hover {
+  background-color: #d32f2f;
+}
+
+/* Responsive for tablets and smaller screens */
+@media (max-width: 768px) {
+  .admin-order-container {
       padding: 15px;
       margin: 15px;
-    }
-  
-    .title {
-      font-size: 20px;
-    }
-  
-    .admin-order-container .ant-table {
-      font-size: 14px;
-    }
   }
-  
+
+  .title {
+      font-size: 20px;
+  }
+
+  .admin-order-container .ant-table {
+      font-size: 14px;
+  }
+
+  .action-buttons {
+      flex-direction: column;
+      gap: 10px;
+  }
+}
+
+/* Responsive for small devices, like phones */
+@media (max-width: 576px) {
+  .admin-order-container {
+      padding: 10px;
+      margin: 10px;
+  }
+
+  .title {
+      font-size: 18px;
+      text-align: center;
+  }
+
+  .admin-order-container .ant-table-thead > tr > th,
+  .admin-order-container .ant-table-tbody > tr > td {
+      font-size: 12px;
+      padding: 8px;
+  }
+
+  .action-buttons {
+      flex-direction: column;
+      gap: 8px;
+  }
+
+  .action-buttons button {
+      font-size: 14px;
+      padding: 6px 12px;
+  }
+}
+
+/* Responsive for very small screens, like older phones */
+@media (max-width: 360px) {
+  .admin-order-container {
+      padding: 5px;
+      margin: 5px;
+  }
+
+  .title {
+      font-size: 16px;
+  }
+
+  .admin-order-container .ant-table-thead > tr > th,
+  .admin-order-container .ant-table-tbody > tr > td {
+      font-size: 10px;
+      padding: 6px;
+  }
+
+  .action-buttons button {
+      font-size: 12px;
+      padding: 4px 8px;
+  }
+}

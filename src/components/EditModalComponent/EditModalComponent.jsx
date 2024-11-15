@@ -1,5 +1,6 @@
-import { Modal } from 'antd';
 import React from 'react';
+import { Modal } from 'antd';
+import './EditModalComponent.css'; 
 
 const EditModalComponent = ({ title = 'Edit Product', isOpen = false, onClose, children }) => {
   return (
@@ -8,8 +9,11 @@ const EditModalComponent = ({ title = 'Edit Product', isOpen = false, onClose, c
       open={isOpen}
       onCancel={onClose}
       footer={null}
+      className="edit-modal"  
     >
-      {children}
+      <div className="modal-children">
+        {children}
+      </div>
     </Modal>
   );
 };

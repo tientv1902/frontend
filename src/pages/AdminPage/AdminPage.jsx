@@ -69,7 +69,11 @@ const AdminPage = () => {
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
-      <Sider>
+      <Sider breakpoint="lg"
+        collapsedWidth="0"
+        onBreakpoint={(broken) => {
+          if (broken) setSelectedKey('dashboard');
+        }}>
         <div className="logo-container" onClick={handleLogoClick} style={{ cursor: 'pointer' }}>
           <HomeOutlined className="admin-icon" />
           <span className="logo-text">Admin</span>

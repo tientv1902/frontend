@@ -25,7 +25,7 @@ const AdminOrder = () => {
   return (
     <div className="admin-order-container">
         <Loading isPending={isLoading}>
-            <Title level={2} className="title">Quản lý Đơn hàng</Title>
+            <Title level={2} className="title">Order Management</Title>
             <OrderTable orders={orders} />
         </Loading>
       

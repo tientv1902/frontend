@@ -78,7 +78,7 @@ const ProductDetailsComponent = () => {
                     countInStock: productDetails?.countInStock
                 }
             }));
-
+            navigate('/order')
             notification.success({
                 message: 'Success!',
                 description: `${productDetails?.name} has been added to your cart.`,
@@ -103,7 +103,6 @@ const ProductDetailsComponent = () => {
                 }
             }));
 
-            // Show success notification
             notification.success({
                 message: 'Added to Cart',
                 description: `${productDetails?.name} has been successfully added to your cart.`,
@@ -156,13 +155,12 @@ const ProductDetailsComponent = () => {
                             </button>
                         </div>
                     </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                         <ButtonComponent
                             size={40}
                             styleButton={{
                                 background: 'rgb(255, 57, 69)',
-                                height: '48px',
-                                width: '220px',
+                                height: '48px', 
                                 border: 'none',
                                 borderRadius: '4px'
                             }}
@@ -175,9 +173,9 @@ const ProductDetailsComponent = () => {
                             styleButton={{
                                 background: '#fff',
                                 height: '48px',
-                                width: '220px',
                                 border: '1px solid rgb(13, 92, 182)',
-                                borderRadius: '4px'
+                                borderRadius: '4px',
+                                
                             }}
                             textButton={'Add To Cart'}
                             styleTextButton={{ color: 'rgb(13, 92, 182)', fontSize: '15px' }}

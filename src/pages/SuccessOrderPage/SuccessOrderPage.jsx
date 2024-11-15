@@ -31,23 +31,23 @@ const SuccessOrderPage = () => {
       <Row gutter={24}>
         <Col xs={24} md={10}>
           <div className="success-order-method-box">
-            <Title level={4} >Phương thức giao hàng</Title>
-            <Text className='success-order-method-item'>{shippingMethod === 'express' ? "Giao hàng nhanh" : "Giao hàng tiết kiệm"}</Text>
+            <Title level={4} >Shipping Method</Title>
+            <Text className='success-order-method-item'>{shippingMethod === 'express' ? "Express Shipping" : "Standard Shipping"}</Text>
           </div>
 
           <div className="success-order-method-box" style={{ marginTop: '20px' }}>
-            <Title level={4}>Phương thức thanh toán</Title>
+            <Title level={4}>Payment Method</Title>
             <Text className='success-order-method-item-1'>
               {paymentMethod === 'cash' 
-                ? "Thanh toán bằng tiền mặt" 
+                ? "Cash Payment" 
                 : paymentMethod === 'paypal' 
-                  ? "Thanh toán bằng PayPal" 
-                  : "Khác"}
+                  ? "Pay with PayPal" 
+                  : "Other"}
             </Text>
           </div>
           
           <div className="success-order-method-box" style={{ marginTop: '20px' }}>
-            <Title level={4}>Thông tin người nhận</Title>
+            <Title level={4}>Recipient information</Title>
             <Text strong>Name: </Text><Text>{userDetails?.name}</Text><br />
             <Text strong>Phone: </Text><Text>{userDetails?.phone}</Text><br />
             <Text strong>Address: </Text><Text>{userDetails?.address}</Text><br />
@@ -90,7 +90,7 @@ const SuccessOrderPage = () => {
             </Row>
           </div>
           <Button type="primary" onClick={handleBackToHome} className="back-to-home-button">
-            Quay về trang chủ
+          Back to home page
           </Button>
         </Col>
       </Row>

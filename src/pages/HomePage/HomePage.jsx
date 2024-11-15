@@ -17,7 +17,7 @@ import { useDebounceHook } from '../../hooks/useDebounceHook';
 const HomePage = () => {
   const searchProduct = useSelector((state) => state?.product?.search);
   const useSearchHook = useDebounceHook(searchProduct, 500);
-  const [limit, setLimit] = useState(5);
+  const [limit, setLimit] = useState(4);
   const [pending] = useState(false);
   const [categoryProduct, setCategoryProduct] = useState([]);
 
@@ -99,7 +99,7 @@ const HomePage = () => {
                 e.currentTarget.style.color = 'rgb(11, 116, 229)';
                 e.currentTarget.style.backgroundColor = 'white';
               }}
-              onClick={() => setLimit((prev) => prev + 5)}
+              onClick={() => setLimit((prev) => prev + 4)}
             >
               See more
             </Button>

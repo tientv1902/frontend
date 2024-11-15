@@ -1,30 +1,101 @@
+/* Cấu trúc chung */
 .admin-product-container {
-    padding: 24px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .title {
-    margin-bottom: 16px; 
-    font-weight: bold; 
-    color: #333; 
-  }
-  
-  .add-product-button {
-    margin-bottom: 16px; 
-    font-size: 16px; 
-  }
-  
-  
+  padding: 24px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  margin-bottom: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.add-product-button {
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+/* Modal */
 .ant-modal .ant-modal-content {
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
+/* Canh phải cho phần tử */
 .right-align {
   display: flex;
   justify-content: flex-end;
 }
 
+/* Responsive cho tất cả các màn hình */
+@media (max-width: 1200px) {
+  .admin-product-container {
+    padding: 16px;
+  }
 
+  .add-product-button {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 992px) {
+  .admin-product-container {
+    padding: 12px;
+  }
+
+  .add-product-button {
+    font-size: 14px;
+    width: 100%; /* Đảm bảo button full-width trên màn hình nhỏ */
+  }
+
+  .title {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-product-container {
+    padding: 10px;
+  }
+
+  .add-product-button {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .title {
+    font-size: 16px;
+    text-align: center; /* Căn giữa tiêu đề trên màn hình nhỏ */
+  }
+
+  .right-align {
+    justify-content: center; /* Canh giữa phần tử nếu cần */
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-product-container {
+    padding: 8px;
+  }
+
+  .add-product-button {
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  .title {
+    font-size: 14px;
+  }
+
+  /* Modal sẽ chiếm hết chiều rộng màn hình */
+  .ant-modal .ant-modal-content {
+    width: 90%;
+  }
+}

@@ -1,29 +1,29 @@
+/* Điều chỉnh chiều rộng logo để phù hợp với kích thước nhỏ hơn */
 .logo-container {
-    height: 64px; 
+    height: 64px;
     display: flex;
-    align-items: center; 
-    justify-content: center; 
-    margin: 16px -16px; 
+    align-items: center;
+    justify-content: center;
+    margin: 16px -16px;
     background: rgba(255, 255, 255, 0.3);
-    border-radius: 8px; 
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
-    padding: 0; 
-    overflow: hidden; 
-    width: 215px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    overflow: hidden;
+    width: 100%; /* Tự động thu nhỏ logo */
 }
 
 .admin-icon {
-    font-size: 24px; 
-    margin-right: 8px; 
+    font-size: 24px;
+    margin-right: 8px;
     color: #1890ff;
 }
 
 .logo-text {
-    font-size: 20px; 
-    font-weight: bold; 
-    color: #333; 
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
 }
-
 
 .ant-layout-sider {
     background: #001529;
@@ -39,7 +39,48 @@
 }
 
 .ant-breadcrumb {
-    background: rgba(255, 255, 255, 0.9); 
-    border-radius: 8px; 
-    padding: 8px; 
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    padding: 8px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .ant-layout-sider {
+        width: 80px !important; /* Giảm chiều rộng của sider */
+    }
+    .logo-container {
+        flex-direction: column;
+        padding: 8px;
+    }
+    .logo-text {
+        font-size: 16px;
+    }
+    .ant-menu-item {
+        padding-left: 12px !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .ant-layout {
+        padding: 0;
+    }
+    .ant-breadcrumb {
+        margin: 8px 0;
+    }
+}
+
+
+@media (max-width: 360px) {
+    .ant-layout-content {
+        padding: 0 8px;
+    }
+    .ant-breadcrumb {
+        font-size: 12px;
+        padding: 4px;
+    }
+    .ant-menu-item {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
 }

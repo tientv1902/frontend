@@ -1,4 +1,3 @@
-
 .product-details-page {
     padding: 0 120px;
     background: #efefef;
@@ -145,7 +144,7 @@
 .button-buy-now {
     background-color: rgb(255, 57, 69);
     color: white;
-    width: 220px;
+    width: 200px;
     padding: 16px;
     border-radius: 8px;
     font-weight: 700;
@@ -176,7 +175,12 @@
     color: white;
 }
 
+/* Các style cho responsive */
 @media screen and (max-width: 768px) {
+    .product-details-page {
+        padding: 0 20px;
+    }
+
     .product-details-wrapper {
         padding: 16px;
     }
@@ -192,13 +196,18 @@
         padding-right: 0;
     }
 
+    .product-image {
+        max-width: 80%;
+    }
+
     .product-details-info-col {
         padding-left: 0;
         text-align: center;
+        width: 100%;
     }
 
     .product-name {
-        font-size: 28px;
+        font-size: 26px;
     }
 
     .product-rating {
@@ -210,14 +219,201 @@
         align-items: flex-start;
     }
 
-    .button-buy-now,
-    .button-installment {
-        width: 100%;
-        margin-top: 10px;
+    .product-price-old {
+        font-size: 16px;
+    }
+
+    .product-price-new {
+        font-size: 28px;
+    }
+
+    .product-delivery-address {
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 14px;
     }
 
     .product-quantity-selector {
         flex-direction: column;
         align-items: center;
     }
+
+    .product-buttons-wrapper {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .button-buy-now,
+    .button-installment {
+        width: 100%;
+        margin-top: 10px;
+    }
+    .button-add-to-cart {
+        width: 100%; /* Chiều rộng 100% cho các màn hình nhỏ hơn */
+        margin-top: 10px;
+    }
 }
+
+@media screen and (max-width: 480px) {
+    .product-details-page {
+        padding: 0 10px;
+    }
+
+    .product-details-wrapper {
+        padding: 12px;
+    }
+
+    .product-details-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-details-image-col {
+        max-width: 100%;
+        border-right: none;
+        padding-right: 0;
+    }
+
+    .product-image {
+        max-width: 80%;
+    }
+
+    .product-details-info-col {
+        padding-left: 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    .product-name {
+        font-size: 24px;
+    }
+
+    .product-rating {
+        justify-content: center;
+        font-size: 14px;
+    }
+
+    .product-price-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .product-price-old {
+        font-size: 14px;
+    }
+
+    .product-price-new {
+        font-size: 24px;
+    }
+
+    .product-delivery-address {
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 12px;
+    }
+
+    .product-quantity-selector {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-buttons-wrapper {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 16px;
+    }
+
+    .button-buy-now,
+    .button-installment {
+        width: 100%;
+        font-size: 14px;
+        margin-top: 8px;
+    }
+    .button-add-to-cart {
+        font-size: 14px; /* Giảm kích thước font chữ cho màn hình nhỏ */
+        padding: 12px; /* Điều chỉnh padding */
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .product-details-page {
+        padding: 0 5px;
+    }
+
+    .product-details-wrapper {
+        padding: 8px;
+    }
+
+    .product-details-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-details-image-col {
+        max-width: 100%;
+        border-right: none;
+        padding-right: 0;
+    }
+
+    .product-image {
+        max-width: 70%;
+    }
+
+    .product-details-info-col {
+        padding-left: 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    .product-name {
+        font-size: 22px;
+    }
+
+    .product-rating {
+        justify-content: center;
+        font-size: 12px;
+    }
+
+    .product-price-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .product-price-old {
+        font-size: 12px;
+    }
+
+    .product-price-new {
+        font-size: 20px;
+    }
+
+    .product-delivery-address {
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 10px;
+    }
+
+    .product-quantity-selector {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-buttons-wrapper {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 12px;
+    }
+
+    .button-buy-now,
+    .button-installment {
+        width: 100%;
+        font-size: 12px;
+        margin-top: 6px;
+    }
+    .button-add-to-cart {
+        font-size: 12px;
+        padding: 10px;
+    }
+}
+

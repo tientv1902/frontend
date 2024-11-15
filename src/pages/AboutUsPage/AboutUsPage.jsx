@@ -1,13 +1,12 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom'; 
 import './AboutUsPage.css';
 
 const AboutUsPage = () => {
-  const navigate = useNavigate(); // Initialize navigate function
+  const navigate = useNavigate(); 
 
-  // Function to handle navigation to the home page
   const goHome = () => {
-    navigate('/'); // Navigate to home page (adjust the path if needed)
+    navigate('/'); 
   };
 
   return (
@@ -42,7 +41,6 @@ const AboutUsPage = () => {
         </p>
       </div>
 
-      {/* Add the Back Home button */}
       <div style={{ textAlign: 'center', marginTop: '20px' }}>
         <button className="back-home-button" onClick={goHome}>Back to Home</button>
       </div>

@@ -27,7 +27,7 @@ const ViewOrderDetails = () => {
   const { data, isPending } = useQuery({
     queryKey: ['orders-details'],
     queryFn: fetchOrderDetails,
-    enabled: !!id, // chỉ chạy khi có id
+    enabled: !!id,
   });
 
   const handleBackToMyOrder = () => {
@@ -41,19 +41,19 @@ const ViewOrderDetails = () => {
         <Row gutter={24}>
           <Col xs={24} md={10}>
             <div className="view-order-method-box">
-              <Title level={4}>Phương thức giao hàng</Title>
-              <Text className="view-order-method-item">Giao hàng nhanh</Text>
+              <Title level={4}>Shipping Method</Title>
+              <Text className="view-order-method-item">{data?.shippingMethod ? (data.shippingMethod === 'express' ? "Express Shipping" : "Standard Shipping") : 'Standard Shipping'}</Text>
             </div>
 
             <div className="view-order-method-box" style={{ marginTop: '20px' }}>
-              <Title level={4}>Phương thức thanh toán</Title>
+              <Title level={4}>Payment Method</Title>
               <Text className="view-order-method-item-1">
-                {data?.paymentMethod ? (data.paymentMethod === 'cash' ? "Thanh toán tiền mặt: Chưa thanh toán" : "Paypal: Đã thanh toán thành công") : 'N/A'}
+                {data?.paymentMethod ? (data.paymentMethod === 'cash' ? "Cash payment: Not paid yet" : "Pay with Paypal: Payment successful") : 'N/A'}
               </Text>
             </div>
 
             <div className="view-order-method-box" style={{ marginTop: '20px' }}>
-              <Title level={4}>Thông tin người nhận</Title>
+              <Title level={4}>Recipient information</Title>
               <Text strong>Name: </Text><Text>{data?.shippingAddress?.fullName || 'N/A'}</Text><br />
               <Text strong>Phone: </Text><Text>{data?.shippingAddress?.phone || 'N/A'}</Text><br />
               <Text strong>Address: </Text><Text>{data?.shippingAddress?.address || 'N/A'}</Text><br />
@@ -96,7 +96,7 @@ const ViewOrderDetails = () => {
               </Row>
             </div>
             <Button type="primary" onClick={handleBackToMyOrder} className="view-order-back-to-home-button">
-              Quay về trang My Order
+              Return to My Order page
             </Button>
           </Col>
         </Row>

@@ -1,20 +1,16 @@
-
+/* Header Styles */
 .header {
     background-color: #ffffff;
-    padding: 15px 100px;
+    padding: 15px 50px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 20px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
     text-transform: none;
-  }
-  
-.header:hover {
-    background-color: #f9f9f9; 
 }
-  
- 
+
 .header div {
     font-size: 28px;
     font-weight: bold;
@@ -24,30 +20,28 @@
     cursor: pointer;
     transition: color 0.3s ease;
 }
-  
+
 .header div:hover {
     color: #1a94ff;
 }
-  
 
 .header-account {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 5px 12px;
+    padding: 8px 14px;
     background-color: #f7f7f7;
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
 }
-  
+
 .header-account:hover {
     background-color: #eaeaea;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-  
- 
+
 .header-account img {
     width: 45px;
     height: 45px;
@@ -56,99 +50,181 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s ease;
 }
-  
+
 .header-account img:hover {
-    transform: scale(1.05); 
+    transform: scale(1.05);
 }
-  
-  
-.text-header-small {
-    font-size: 16px;
-    color: #333;
-    font-weight: 600;
-    padding: 8px 12px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-    text-transform: none;
-}
-  
-.text-header-small:hover {
-    background-color: #e0e0e0; 
-    color: #1a94ff; 
-}
-  
- 
 .content-popup {
-    cursor: pointer;
-    padding: 10px 15px;
-    border-radius: 6px;
-    transition: background-color 0.3s, color 0.3s;
-    font-size: 14px;
-    font-weight: 500;
-    color: #555;
-}
-  
-.content-popup:hover {
-    background-color: #f0f0f0; 
-    color: #1a94ff; 
-}
-  
- 
-.badge-wrapper {
     display: flex;
     align-items: center;
-    gap: 8px;
-    cursor: pointer;
-    padding: 6px 12px;
-    border-radius: 8px;
-    transition: background-color 0.3s;
-}
-  
-.badge-wrapper:hover {
-    background-color: #f7f7f7;
-}
-  
-.shopping-cart-icon {
-    font-size: 28px;
-    color: #333;
-}
-  
-.shopping-cart-badge {
-    background-color: #ff4d4f;
-    color: white;
-    font-size: 14px;
-    border-radius: 50%;
-    padding: 4px 8px;
-}
-  
-
-.search-input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #d9d9d9;
-    border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-  
-.search-input:focus {
-    border-color: #1a94ff;
-    box-shadow: 0 0 8px rgba(26, 148, 255, 0.2);
-}
-  
-.search-button {
-    background-color: #1a94ff;
-    color: white;
+    padding: 8px 12px;
     font-size: 16px;
-    padding: 8px 16px;
-    border: none;
-    border-radius: 6px;
+    color: #333;
     cursor: pointer;
-    transition: background-color 0.3s;
-}
+    border-radius: 4px; /* Thêm góc bo tròn cho đẹp */
+    transition: background-color 0.3s, color 0.3s; /* Thêm hiệu ứng chuyển màu nền và chữ */
+  }
   
-.search-button:hover {
-    background-color: #1480db; 
-}
+  .content-popup:hover {
+    background-color: #f0f0f0; /* Thêm màu nền khi hover */
+    color: #1a94ff; /* Thay đổi màu chữ khi hover */
+  }
   
+  .content-popup svg {
+    margin-right: 8px; /* Giữ khoảng cách giữa icon và text */
+  }
+  
+  .content-popup:active {
+    background-color: #eaeaea; /* Màu nền khi click vào */
+  }
+  
+/* Responsive Adjustments */
+
+/* Tablet screen */
+@media (max-width: 1200px) {
+    .header {
+        padding: 15px 50px;
+        gap: 15px;
+    }
+
+    .header-account {
+        gap: 8px;
+    }
+
+    .header-account img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .header div {
+        font-size: 24px;
+    }
+}
+
+/* Small tablets and large mobile */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        padding: 15px;
+        gap: 10px;
+    }
+
+    .header-account {
+        margin-top: 10px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .header div {
+        font-size: 22px;
+    }
+
+    .header-account img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .header-account, .header div {
+        text-align: center;
+    }
+    
+    .badge-wrapper {
+        margin-top: 10px;
+    }
+
+    .text-header-small {
+        font-size: 14px;
+    }
+
+    .shopping-cart-icon {
+        font-size: 24px;
+    }
+}
+
+/* Mobile screen */
+@media (max-width: 480px) {
+    .header {
+        padding: 10px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header div {
+        font-size: 18px;
+        letter-spacing: 1px;
+        text-align: left;
+        margin-bottom: 10px;
+    }
+
+    .header-account {
+        width: 100%;
+        justify-content: flex-start;
+        gap: 10px;
+    }
+
+    .header-account img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .header-account span {
+        font-size: 14px;
+        margin-left: 8px;
+    }
+
+    .search-input {
+        font-size: 12px;
+    }
+
+    .search-button {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    .badge-wrapper {
+        font-size: 12px;
+    }
+
+    .shopping-cart-icon {
+        font-size: 20px;
+    }
+}
+
+/* Extra small screen */
+@media (max-width: 320px) {
+    .header {
+        padding: 10px 10px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header div {
+        font-size: 18px;
+        letter-spacing: 1px;
+        text-align: left;
+        margin-bottom: 10px;
+    }
+
+    .header-account {
+        width: 100%;
+        justify-content: flex-start;
+        gap: 8px;
+    }
+
+    .header-account img {
+        width: 28px;
+        height: 28px;
+    }
+
+    .header-account span {
+        font-size: 12px;
+    }
+
+    .shopping-cart-icon {
+        font-size: 18px;
+    }
+
+    .badge-wrapper {
+        font-size: 12px;
+    }
+}

@@ -2,9 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import './SignUpPage.css';
 import InputForm from '../../components/InputForm/InputForm';
 import ButtonComponent from '../../components/ButtonComponent/ButtonComponent';
-import { Image } from 'antd';
 import { EyeFilled, EyeInvisibleFilled } from '@ant-design/icons';
-import imageLogo from '../../assets/images/logo-login.png';
 import imageLogin from '../../assets/images/background-login2.png';
 import { useNavigate } from 'react-router-dom';
 import * as UserService from '../../services/UserService';
@@ -68,9 +66,9 @@ const SignUpPage = () => {
       }}
     >
       <div className="signup-container">
-        <div className="container-left">
-          <h1>Welcome to TVT Store</h1>
-          <p>Create Account</p>
+        <div className="signup-container-left">
+          <h1 className="signup-header">Welcome to TVT Store</h1>
+          <p className="signup-description">Create Account</p>
           <InputForm
             style={{ marginBottom: '10px' }}
             placeholder="abc@gmail.com"
@@ -142,16 +140,7 @@ const SignUpPage = () => {
             </span>
           </p>
         </div>
-        <div className="container-right">
-          <Image
-            style={{ borderTopRightRadius: '40px', borderBottomRightRadius: '40px' }}
-            src={imageLogo}
-            preview={false}
-            alt="image-logo"
-            height="445px"
-            width="300px"
-          />
-        </div>
+
       </div>
     </div>
   );

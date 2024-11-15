@@ -1,0 +1,32 @@
+/* Button styles */
+.responsive-button {
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, font-size 0.3s ease;
+  }
+  
+  /* Adjust size for smaller screens */
+  @media (max-width: 768px) {
+    .responsive-button {
+      font-size: 14px;
+      padding: 8px 16px;
+    }
+  }
+  
+  /* Adjust size for mobile screens (max-width: 480px) */
+  @media (max-width: 480px) {
+    .responsive-button {
+      font-size: 12px;
+      padding: 6px 12px;
+    }
+  }
+  
+  /* Adjust size for very small screens (max-width: 320px) */
+  @media (max-width: 320px) {
+    .responsive-button {
+      font-size: 11px;
+      padding: 5px 10px;
+    }
+  }
+  

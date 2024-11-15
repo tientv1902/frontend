@@ -1,12 +1,15 @@
+/* Container chính */
 #container {
   display: flex;
   min-height: 100vh;
   padding: 20px;
   gap: 20px;
-  background-color: #f5f5f5; 
+  background-color: #f5f5f5;
   border-radius: 8px;
+  flex-wrap: wrap; /* Cho phép các phần tử nằm trên các dòng nếu không đủ không gian */
 }
 
+/* Sidebar */
 .sidebar {
   width: 180px;
   background-color: #fff;
@@ -16,7 +19,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; 
+  justify-content: flex-start;
 }
 
 .type-product-header {
@@ -49,8 +52,9 @@
   background-color: rgba(11, 116, 229, 0.1);
 }
 
+/* Main content */
 .main-content {
-  width: calc(100% - 200px); 
+  width: calc(100% - 200px); /* Chiếm phần còn lại ngoài sidebar */
   padding: 20px;
   background-color: #fff;
   border-radius: 8px;
@@ -73,4 +77,98 @@
   text-align: center;
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+/* Responsive cho màn hình nhỏ (tablet và điện thoại lớn) */
+@media (max-width: 768px) {
+  #container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .main-content {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .type-product-header {
+    font-size: 16px;
+  }
+
+  .type-product-item {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  .button-more {
+    width: 100%;
+  }
+}
+
+/* Responsive cho điện thoại nhỏ */
+@media (max-width: 480px) {
+  #container {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .sidebar {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .main-content {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .type-product-header {
+    font-size: 14px;
+  }
+
+  .type-product-item {
+    font-size: 10px;
+    padding: 5px;
+  }
+
+  .button-more {
+    width: 100%;
+    padding: 8px;
+  }
+}
+
+/* Responsive cho điện thoại rất nhỏ (320px) */
+@media (max-width: 320px) {
+  #container {
+    flex-direction: column;
+    padding: 5px;
+  }
+
+  .sidebar {
+    width: 100%;
+    padding: 5px;
+  }
+
+  .main-content {
+    width: 100%;
+    padding: 5px;
+  }
+
+  .type-product-header {
+    font-size: 12px;
+  }
+
+  .type-product-item {
+    font-size: 8px;
+    padding: 4px;
+  }
+
+  .button-more {
+    width: 100%;
+    padding: 6px;
+  }
 }

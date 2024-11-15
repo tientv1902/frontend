@@ -55,7 +55,11 @@ const OrderTable = ({ orders = [], isLoading = false }) => {
       columns={columns}
       dataSource={dataSource}
       loading={isLoading}
-      pagination={{ pageSize: 5 }}
+      scroll={{ x: 'max-content' }}
+      pagination={{ pageSize: 5,
+        showSizeChanger: true,
+        pageSizeOptions: ['5', '10', '15', '20'],
+        responsive: true, }}
     />
   );
 };

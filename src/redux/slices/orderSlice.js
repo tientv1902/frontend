@@ -8,7 +8,7 @@ const initialState = {
   shippingPrice: 0,
   taxPrice: 0,
   totalPrice: 0,
-  user: '',
+  user: null,
   isPaid: false,
   paidAt: '',
   isDelivered: false,
@@ -28,6 +28,15 @@ export const orderSlice = createSlice({
         state.orderItems.push(orderItem);
       }
     },
+    loadCartForUser: (state, action) => {
+      const { user, orderItems } = action.payload;
+      state.user = user;
+      state.orderItems = orderItems || [];
+    },
+    clearCartOnLogout: (state) => {
+      state.orderItems = [];
+      state.user = null;
+    },
     updateOrderItemQuantity: (state, action) => {
       const { productId, updatedAmount } = action.payload;
       const item = state.orderItems.find((item) => item.product === productId);
@@ -42,6 +51,6 @@ export const orderSlice = createSlice({
   },
 });
 
-export const { orderProduct, updateOrderItemQuantity, orderRemove } = orderSlice.actions;
+export const { orderProduct, updateOrderItemQuantity, orderRemove, loadCartForUser, clearCartOnLogout } = orderSlice.actions;
 
 export default orderSlice.reducer;

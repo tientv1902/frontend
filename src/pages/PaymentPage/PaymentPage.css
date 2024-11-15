@@ -135,3 +135,129 @@
   transform: scale(1.02);
   transition: all 0.2s ease-in-out;
 }
+
+/* Các style cho responsive */
+@media (max-width: 1200px) {
+  .payment-page-container {
+    padding: 16px;
+    max-width: 100%;
+  }
+  .payment-page-box, .payment-page-summary-box {
+    padding: 16px;
+  }
+  .payment-page-place-order-button {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 768px) {
+  .payment-page-container {
+    padding: 10px;
+    margin: 20px auto;
+  }
+
+  .payment-page-box, .payment-page-summary-box {
+    padding: 15px;
+  }
+
+  .payment-page-product-item {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding: 12px 0;
+  }
+
+  .payment-page-product-image {
+    width: 50px;
+    height: 50px;
+    margin-right: 12px;
+  }
+
+  .payment-page-item-meta-title {
+    font-size: 1em;
+  }
+
+  .payment-page-place-order-button {
+    font-size: 1em;
+    padding: 14px;
+  }
+
+  .payment-page-method-item {
+    padding: 12px 10px;
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .payment-page-container {
+    padding: 8px;
+    margin: 15px auto;
+  }
+
+  .payment-page-box, .payment-page-summary-box {
+    padding: 12px;
+  }
+
+  .payment-page-product-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 0;
+  }
+
+  .payment-page-product-image {
+    width: 45px;
+    height: 45px;
+    margin-right: 8px;
+  }
+
+  .payment-page-item-meta-title {
+    font-size: 0.9em;
+  }
+
+  .payment-page-place-order-button {
+    font-size: 0.9em;
+    padding: 12px;
+  }
+
+  .payment-page-method-item {
+    font-size: 0.9em;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 320px) {
+  .payment-page-container {
+    padding: 6px;
+    margin: 10px auto;
+  }
+
+  .payment-page-box, .payment-page-summary-box {
+    padding: 10px;
+  }
+
+  .payment-page-product-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 0;
+  }
+
+  .payment-page-product-image {
+    width: 40px;
+    height: 40px;
+    margin-right: 6px;
+  }
+
+  .payment-page-item-meta-title {
+    font-size: 0.85em;
+  }
+
+  .payment-page-place-order-button {
+    font-size: 0.85em;
+    padding: 10px;
+  }
+
+  .payment-page-method-item {
+    font-size: 0.85em;
+    padding: 8px;
+  }
+}

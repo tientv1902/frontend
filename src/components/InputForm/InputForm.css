@@ -1,11 +1,36 @@
-
 .input-style {
     border-top: none;
     border-right: none;
     border-left: none;
     outline: none;
+    font-size: 16px; 
+    width: 100%;
+    padding: 10px 15px; 
 }
 
 .input-style:focus {
     background-color: rgb(232, 240, 254);
+    border-color: #1890ff; 
+}
+
+
+@media (max-width: 768px) {
+    .input-style {
+        font-size: 14px;
+        padding: 8px 12px; 
+    }
+}
+
+@media (max-width: 480px) {
+    .input-style {
+        font-size: 12px; 
+        padding: 6px 10px; 
+    }
+}
+
+@media (max-width: 320px) {
+    .input-style {
+        font-size: 10px; 
+        padding: 4px 8px; 
+    }
 }

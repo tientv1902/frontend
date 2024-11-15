@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Button, Typography, Form, Input, message } from "antd";
-// import { ShoppingCartOutlined } from "@ant-design/icons";
 import "./AdminUser.css";
 import * as UserService from "../../services/UserService";
 import { useMutationHooks } from "../../hooks/useMutationHook";
@@ -14,7 +13,6 @@ import UserTable from "../UserTable/UserTable";
 const { Title } = Typography;
 
 const AdminUser = (props) => {
-  // const [isModalVisible, setIsModalVisible] = useState(false);
 
   const [rowSelected, setRowSelected] = useState("");
   const [isOpenModal, setIsOpenModal] = useState(false);
@@ -22,14 +20,9 @@ const AdminUser = (props) => {
   const [isModalOpenDelete, setIsModalOpenDelete] = useState(false);
   const [userIdToDelete, setUserIdToDelete] = useState(null);
   const user = useSelector((state) => state?.user);
-  // const [form] = Form.useForm();
+
   const [formEdit] = Form.useForm();
-  // const [stateUser, setStateUser] = useState({
-  //   name: '',
-  //   email: '',
-  //   phone: '',
-  //   isAdmin: false,
-  // });
+
 
   const [stateUserDetails, setStateUserDetails] = useState({
     name: '',
@@ -37,8 +30,6 @@ const AdminUser = (props) => {
     phone: '',
     isAdmin: false,
   });
-
-
 
   const mutationUpdate = useMutationHooks((data) => {
     const { id, token, ...rests } = data || {};
@@ -86,21 +77,6 @@ const AdminUser = (props) => {
     refetch,
   } = useQuery({ queryKey: ["user"], queryFn: getAllUsers });
 
-  // const showModal = () => {
-  //   setIsModalVisible(true);
-  // };
-
-  // const handleCancel = useCallback(() => {
-  //   setIsModalVisible(false);
-  //   setStateUser({
-  //     name: '',
-  //     email: '',
-  //     phone: '',
-  //     isAdmin: false,
-  //   });
-
-  //   form.resetFields();
-  // }, [form]);
 
   const handleCancelUpdate = useCallback(() => {
     setIsOpenModal(false);
@@ -115,20 +91,6 @@ const AdminUser = (props) => {
     formEdit.resetFields();
   }, [formEdit]);
 
-  // const handleAddUser = async () => {
-  //   const response = await mutation.mutateAsync(stateUser);
-  //   if (response?.status === "Ok") {
-  //     await refetch();
-  //     handleCancel();
-  //   }
-  // };
-
-  // const handleOnchange = (e) => {
-  //   setStateUser({
-  //     ...stateUser,
-  //     [e.target.name]: e.target.value,
-  //   });
-  // };
 
   const handleOnchangeDetails = (e) => {
     setStateUserDetails({
@@ -178,20 +140,6 @@ const AdminUser = (props) => {
     setIsOpenModal(true);
   };
   
-
-  // useEffect(() => {
-  //   console.log("Mutation data:", data);
-  //   if (isSuccess) {
-  //     if (data?.status === "Ok") {
-  //       message.success("User added successfully!");
-  //       handleCancel();
-  //     } else {
-  //       message.error(data?.message || "Failed to add user. Please try again.");
-  //     }
-  //   } else if (isError) {
-  //     message.error("An error occurred. Please try again.");
-  //   }
-  // }, [isSuccess, isError, data, handleCancel]);
 
   useEffect(() => {
     if (isSuccessUpdated && dataUpdated?.status === "Ok") {
@@ -249,14 +197,6 @@ const AdminUser = (props) => {
       <Title level={2} className="title">
         User Management
       </Title>
-      {/* <Button
-        type="primary"
-        className="add-user-button"
-        icon={<ShoppingCartOutlined />}
-        onClick={showModal}
-      >
-        Add User
-      </Button> */}
 
       <UserTable
         users={users?.data}
@@ -265,63 +205,6 @@ const AdminUser = (props) => {
         handleDeleteUser={handleDeleteUser}
         pagination={{ pageSize: 5 }}
       />
-
-      {/* <Modal
-        title="Add New User"
-        open={isModalVisible}
-        onCancel={handleCancel}
-        footer={null}
-      >
-        <Loading isPending={isPending}>
-          <Form layout="vertical" onFinish={handleAddUser} form={form}>
-            <Form.Item
-              label="Name"
-              name="name"
-              rules={[
-                { required: true, message: "Please enter the user name" },
-              ]}
-            >
-              <Input
-                placeholder="Enter user name"
-                value={stateUser.name}
-                onChange={handleOnchange}
-                name="name"
-              />
-            </Form.Item>
-            <Form.Item
-              label="Email"
-              name="email"
-              rules={[{ required: true, message: "Please enter the email" }]}
-            >
-              <Input
-                placeholder="Enter user email"
-                value={stateUser.email}
-                onChange={handleOnchange}
-                name="email"
-              />
-            </Form.Item>
-            <Form.Item
-              label="Phone"
-              name="phone"
-              rules={[{ required: true, message: "Please enter your phone" }]}
-            >
-              <Input
-                type="number"
-                placeholder="Enter your phone"
-                value={stateUser.phone}
-                onChange={handleOnchange}
-                name="phone"
-              />
-            </Form.Item>
-
-            <Form.Item className="right-align">
-              <Button type="primary" htmlType="submit">
-                Add User
-              </Button>
-            </Form.Item>
-          </Form>
-        </Loading>
-      </Modal> */}
       <EditModalComponent
         title="Edit User"
         isOpen={isOpenModal}

@@ -96,6 +96,7 @@ const UserTable = ({
         columns={columns}
         dataSource={dataSource}
         loading={isPending}
+        scroll={{ x: 'max-content' }} 
         {...props}
       />
     </div>

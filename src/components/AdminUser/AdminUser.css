@@ -1,41 +1,142 @@
+/* Admin User Container */
 .admin-user-container {
-    padding: 24px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  margin-bottom: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.add-user-button {
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.action-button {
+  padding: 0;
+  margin: 0 8px;
+  font-size: 14px;
+}
+
+.ant-table {
+  background: #fff;
+}
+
+.ant-table th {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.ant-table td {
+  color: #666;
+}
+
+.ant-btn-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .admin-user-container {
+    padding: 16px; /* Giảm padding cho màn hình nhỏ hơn */
   }
-  
+
   .title {
-    margin-bottom: 16px;
-    font-weight: bold; 
-    color: #333; 
+    font-size: 18px; /* Giảm kích thước chữ tiêu đề */
   }
-  
+
   .add-user-button {
-    margin-bottom: 16px; 
-    font-size: 16px; 
+    font-size: 14px; /* Giảm kích thước nút */
   }
-  
+
   .action-button {
-    padding: 0;
-    margin: 0 8px; 
-    font-size: 14px;
+    font-size: 12px; /* Font nhỏ hơn cho các nút hành động */
   }
-  
-  .ant-table {
-    background: #fff; 
-  }
-  
-  .ant-table th {
-    background: #f0f0f0; 
-    color: #333; 
-  }
-  
+
+  .ant-table th,
   .ant-table td {
-    color: #666; 
+    font-size: 12px; /* Giảm font chữ trong bảng */
   }
-  
-  .ant-btn-link:hover {
-    text-decoration: underline; 
+
+  .ant-btn-link {
+    font-size: 12px; /* Giảm kích thước font cho liên kết */
   }
-  
+}
+
+@media (max-width: 480px) {
+  .admin-user-container {
+    padding: 12px; /* Giảm padding thêm nữa cho các màn hình rất nhỏ */
+  }
+
+  .title {
+    font-size: 16px; /* Tiêu đề nhỏ hơn */
+  }
+
+  .add-user-button {
+    font-size: 14px;
+    width: 100%; /* Đảm bảo nút chiếm toàn bộ chiều rộng */
+  }
+
+  .action-button {
+    font-size: 10px; /* Giảm font-size cho nút */
+    padding: 0 4px; /* Giảm khoảng cách padding */
+  }
+
+  .ant-table th,
+  .ant-table td {
+    font-size: 10px; /* Giảm font-size bảng cho màn hình nhỏ */
+    padding: 6px; /* Giảm padding bảng */
+  }
+
+  /* Modal Adjustments */
+  .ant-modal-content {
+    padding: 8px; /* Giảm padding trong modal */
+  }
+
+  .ant-modal-header {
+    padding: 6px;
+  }
+
+  .ant-modal-title {
+    font-size: 14px; /* Font nhỏ hơn cho tiêu đề trong modal */
+  }
+
+  .ant-btn-primary {
+    font-size: 10px; /* Font nhỏ cho nút trong modal */
+  }
+}
+
+@media (max-width: 320px) {
+  .admin-user-container {
+    padding: 8px; /* Giảm padding cho các thiết bị cực nhỏ */
+  }
+
+  .title {
+    font-size: 14px; /* Tiêu đề rất nhỏ trên màn hình cực nhỏ */
+  }
+
+  .add-user-button {
+    font-size: 12px;
+    width: 100%; /* Nút chiếm toàn bộ chiều rộng */
+  }
+
+  .action-button {
+    font-size: 8px; /* Giảm font-size cực kỳ nhỏ */
+    padding: 0 2px; /* Cắt giảm padding */
+  }
+
+  .ant-table th,
+  .ant-table td {
+    font-size: 8px; /* Font chữ cực nhỏ cho bảng */
+    padding: 4px; /* Giảm padding bảng */
+  }
+
+  .ant-btn-link {
+    font-size: 8px; /* Font chữ rất nhỏ cho liên kết */
+  }
+}

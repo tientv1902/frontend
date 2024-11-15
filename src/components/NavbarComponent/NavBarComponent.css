@@ -23,3 +23,46 @@
     background-color: rgb(238, 238, 238);
     width: fit-content;
 }
+
+@media (max-width: 768px) {
+    .wrapper-label-text {
+        font-size: 14px; 
+    }
+
+    .wrapper-text-value {
+        font-size: 12px;
+    }
+
+    .wrapper-content {
+        gap: 10px; 
+    }
+}
+
+
+@media (max-width: 480px) {
+    .wrapper-label-text {
+        font-size: 12px;
+    }
+
+    .wrapper-text-value {
+        font-size: 10px; 
+    }
+
+    .wrapper-content {
+        gap: 8px;
+    }
+}
+
+@media (max-width: 320px) {
+    .wrapper-label-text {
+        font-size: 10px; 
+    }
+
+    .wrapper-text-value {
+        font-size: 8px; 
+    }
+
+    .wrapper-content {
+        gap: 6px; 
+    }
+}

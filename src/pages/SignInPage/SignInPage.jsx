@@ -2,9 +2,8 @@ import React, { useEffect, useState } from 'react';
 import './SignInPage.css'; 
 import InputForm from '../../components/InputForm/InputForm';
 import ButtonComponent from '../../components/ButtonComponent/ButtonComponent';
-import { Image, notification } from 'antd'; 
+import { notification } from 'antd'; 
 import { EyeFilled, EyeInvisibleFilled } from '@ant-design/icons';
-import imageLogo from '../../assets/images/logo-login.png';
 import imageLogin from '../../assets/images/background-login2.png';
 import { useLocation, useNavigate } from 'react-router-dom';
 import * as UserService from '../../services/UserService';
@@ -14,6 +13,7 @@ import { jwtDecode } from 'jwt-decode';
 import { useDispatch } from 'react-redux';
 import { updateUser } from '../../redux/slices/userSlice';
 import { GoogleLogin } from '@react-oauth/google';
+import { loadCartForUser } from '../../redux/slices/orderSlice';
 
 const SignInPage = () => {
   const [isShowPassword, setIsShowPassword] = useState(false);
@@ -31,6 +31,10 @@ const SignInPage = () => {
     const handleGetDetailsUser = async (id, token) => {
       const res = await UserService.getDetailsUser(id, token);
       dispatch(updateUser({ ...res?.data, access_token: token }));
+  
+      // Load cart for logged in user from localStorage
+      const userCart = JSON.parse(localStorage.getItem(`cart_${id}`)) || [];
+      dispatch(loadCartForUser({ user: id, orderItems: userCart }));
     };
   
     if (isSuccess) {
@@ -39,6 +43,7 @@ const SignInPage = () => {
       } else {
         navigate('/');
       }
+  
       localStorage.setItem('access_token', JSON.stringify(data?.access_token));
       if (data?.access_token) {
         const decoded = jwtDecode(data?.access_token);
@@ -47,7 +52,8 @@ const SignInPage = () => {
         }
       }
     } 
-  }, [isSuccess, navigate, data?.access_token, dispatch, location?.state])
+  }, [isSuccess, navigate, data?.access_token, dispatch, location?.state]);
+  
   
 
   const togglePasswordVisibility = () => {
@@ -79,13 +85,13 @@ const SignInPage = () => {
       navigate('/sign-in');
       notification.error({
         message: 'Login Failed',
-        description: data?.message || 'Đăng nhập không thành công. Vui lòng thử lại.',
+        description: data?.message || 'Login failed. Please try again.',
         placement: 'bottomRight',
       });
     }else if (data?.status === 'Ok'){
       notification.success({
         message: 'Login Success',
-        description: data?.message || 'Đăng nhập thành công.',
+        description: data?.message || 'Login successful.',
         placement: 'bottomRight',
       });
     }
@@ -95,36 +101,39 @@ const SignInPage = () => {
     try {
       const googleToken = response.credential;
       const data = await UserService.loginGGUser({ token: googleToken });
-  
-      dispatch(updateUser(data.user));
-  
-      localStorage.setItem('access_token', JSON.stringify(data.access_token));
-  
-      notification.success({
-        message: 'Login Success',
-        description: 'Đăng nhập thành công với Google',
-      });
-  
-      navigate('/'); 
-  
-      setTimeout(() => {
-        window.location.reload();
-      }, 500); 
+      
+      if (data && data.user && data.access_token) {
+        dispatch(updateUser(data.user));
+        localStorage.setItem('access_token', JSON.stringify(data.access_token));
+
+        const userCart = JSON.parse(localStorage.getItem(`cart_${data.user._id}`)) || [];
+        dispatch(loadCartForUser({ user: data.user.id, orderItems: userCart }));
+        
+        notification.success({
+          message: 'Login Success',
+          description: 'Successfully logged in with Google',
+        });
+        
+        navigate('/');
+        setTimeout(() => {
+          window.location.reload();
+        }, 500);
+      } else {
+        throw new Error("User data or access token is missing");
+      }
     } catch (error) {
+      console.error("Google login error:", error);
       notification.error({
         message: 'Login Failed',
-        description: 'Đăng nhập Google không thành công',
+        description: 'Google Sign In Failed',
       });
     }
   };
-  
  
-
-  // Xử lý đăng nhập Google thất bại
   const handleGoogleLoginFailure = () => {
     notification.error({
       message: 'Login Failed',
-      description: 'Đăng nhập Google không thành công',
+      description: 'Google Sign In Failed',
     });
   };
 
@@ -166,7 +175,6 @@ const SignInPage = () => {
             />
           </div>
 
-          {/* Hiển thị thông báo lỗi nếu có */}
           {errorMessage && <span style={{ color: 'red', marginTop: '10px' }}>{errorMessage}</span>}
 
           <Loading isPending={isPending}>
@@ -191,24 +199,11 @@ const SignInPage = () => {
             onError={handleGoogleLoginFailure}
           />
           <p>
-            <span className="text-light">Forgot Password?</span>
-          </p>
-          <p>
             Don't have an Account?{' '}
             <span className="text-light" onClick={handleNavigateSignUp}>
               Create your account?
             </span>
           </p>
-        </div>
-        <div className="container-right">
-          <Image
-            style={{ borderTopRightRadius: '40px', borderBottomRightRadius: '40px' }}
-            src={imageLogo}
-            preview={false}
-            alt="image-logo"
-            height="445px"
-            width="300px"
-          />
         </div>
       </div>
     </div>

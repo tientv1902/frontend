@@ -53,24 +53,25 @@ const FooterComponent = () => {
         </Col>
 
         <Col span={6} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <span className="footer-text">
-            <strong>Follow Us</strong>
-          </span>
-          <div style={{ display: 'flex', gap: '10px' }}>
-            <span className="footer-icon">
-              <FacebookOutlined />
-            </span>
-            <span className="footer-icon">
-              <TwitterOutlined />
-            </span>
-            <span className="footer-icon">
-              <InstagramOutlined />
-            </span>
-            <span className="footer-icon">
-              <YoutubeOutlined />
-            </span>
-          </div>
-        </Col>
+    <span className="footer-text">
+        <strong>Follow Us</strong>
+    </span>
+    <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '10px' }}>
+        <span className="footer-icon">
+            <FacebookOutlined />
+        </span>
+        <span className="footer-icon">
+            <TwitterOutlined />
+        </span>
+        <span className="footer-icon">
+            <InstagramOutlined />
+        </span>
+        <span className="footer-icon">
+            <YoutubeOutlined />
+        </span>
+    </div>
+</Col>
+
       </Row>
 
       <Row gutter={16} className="wrapper-footer-section">

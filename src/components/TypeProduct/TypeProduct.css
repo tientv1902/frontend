@@ -1,8 +1,9 @@
-
+/* Cơ bản cho toàn bộ container */
 .type-product-container {
   padding: 20px;
 }
 
+/* Header của loại sản phẩm */
 .type-product-header {
   font-size: 24px;
   font-weight: 600;
@@ -11,6 +12,7 @@
   text-align: center;
 }
 
+/* Mỗi mục loại sản phẩm */
 .type-product-item {
   padding: 10px 20px;
   background-color: #f9f9f9;
@@ -25,8 +27,60 @@
   text-align: center;
 }
 
+/* Hiệu ứng hover cho mục loại sản phẩm */
 .type-product-item:hover {
   background-color: #e0f7fa;
   transform: scale(1.05);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Media query cho màn hình nhỏ (máy tính bảng, di động lớn) */
+@media (max-width: 768px) {
+  .type-product-container {
+    padding: 15px;
+  }
+
+  .type-product-header {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .type-product-item {
+    font-size: 14px;
+    padding: 8px 15px;
+  }
+}
+
+/* Media query cho điện thoại di động nhỏ */
+@media (max-width: 480px) {
+  .type-product-container {
+    padding: 10px;
+  }
+
+  .type-product-header {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .type-product-item {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}
+
+/* Media query cho điện thoại rất nhỏ (320px) */
+@media (max-width: 320px) {
+  .type-product-container {
+    padding: 5px;
+  }
+
+  .type-product-header {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+
+  .type-product-item {
+    font-size: 10px;
+    padding: 4px 8px;
+  }
 }

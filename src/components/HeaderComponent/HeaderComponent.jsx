@@ -10,6 +10,7 @@ import Loading from '../LoadingComponent/Loading';
 import './HeaderComponent.css'; 
 import { searchProduct } from '../../redux/slices/productSlice';
 import { FaUser, FaCogs, FaClipboardList, FaSignOutAlt } from 'react-icons/fa';
+import { clearCartOnLogout } from '../../redux/slices/orderSlice';
 
 const HeaderComponent = () => {
   const navigate = useNavigate();
@@ -26,8 +27,13 @@ const HeaderComponent = () => {
   const handleLogout = async () => {
     setLoading(true);
     try {
+      if (user?.id) {
+        localStorage.setItem(`cart_${user.id}`, JSON.stringify(order?.orderItems || []));
+      }
+  
       await UserService.logoutUser();
       dispatch(resetUser());
+      dispatch(clearCartOnLogout()); 
       localStorage.removeItem('access_token');
       message.success('Logout successful!');
     } catch (error) {
@@ -38,6 +44,7 @@ const HeaderComponent = () => {
       navigate('/sign-in');
     }
   };
+  
 
   const content = (
     <div>
@@ -75,7 +82,7 @@ const HeaderComponent = () => {
       <div className="header">
         <Col span={5} style={{ display: 'flex', alignItems: 'center' }}>
           <div
-            style={{ 
+            style={{
               fontSize: '24px',
               fontWeight: 'bold',
               color: '#333',
@@ -90,12 +97,12 @@ const HeaderComponent = () => {
           </div>
         </Col>
         <Col span={13}>
-          <ButtonInputSearch 
-          size="large" 
-          textButton="Search" 
-          placeholder="Input Search"
-          onChange={onSearch}
-          value={search} 
+          <ButtonInputSearch
+            size="large"
+            textButton="Search"
+            placeholder="Input Search"
+            onChange={onSearch}
+            value={search}
           />
         </Col>
         <Col span={6} style={{ display: 'flex', gap: '44px', alignItems: 'center' }}>
@@ -118,7 +125,7 @@ const HeaderComponent = () => {
                   <Popover content={content} trigger="click">
                     <div
                       style={{
-                        display: 'flex', 
+                        display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'space-between',
                         cursor: 'pointer',
@@ -130,8 +137,6 @@ const HeaderComponent = () => {
                         transition: 'background-color 0.3s',
                         width: '150px',
                       }}
-                      onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#f0f0f0')}
-                      onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
                     >
                       <span>{user?.name.length ? user?.name : user?.email}</span>
                       <CaretDownOutlined style={{ marginLeft: 'auto' }} />
@@ -139,31 +144,29 @@ const HeaderComponent = () => {
                   </Popover>
                 </>
               ) : (
-                <div 
-                  onClick={handleNavigateLogin} 
+                <div
+                  onClick={handleNavigateLogin}
                   style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}
                 >
                   <UserOutlined style={{ fontSize: '25px', marginRight: '8px', color: '#333' }} />
-                  <span className="text-header-small">Account</span>
+                  <span className="text-header-small" style={{fontSize: '14px'}}>Account</span>
                 </div>
               )}
             </div>
           </Loading>
-          <div 
-            style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} 
+          <div
+            style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}
             onClick={() => navigate('/order')}
           >
             <Badge count={order?.orderItems?.length} style={{ margin: '0' }}>
               <ShoppingCartOutlined style={{ fontSize: '25px', color: '#333' }} />
             </Badge>
-            <span className="text-header-small" style={{ marginLeft: '4px', marginTop: '2px' }}>
-              Cart
-            </span>
           </div>
         </Col>
       </div>
     </div>
   );
+
 };
 
 export default HeaderComponent;

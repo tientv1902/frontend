@@ -1,40 +1,108 @@
+/* Profile Header */
 .header-profile {
-    color: #2c3e50;
-    font-size: 36px;
-    margin-bottom: 10px;
-    text-align: center;
-    font-weight: bold;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
+  color: #2c3e50;
+  font-size: 36px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+/* Profile Content */
+.content-profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 30px;
+}
+
+/* Label for inputs or information */
+.label {
+  color: #555;
+  font-size: 16px;
+  margin-bottom: 10px;
+  display: block;
+  font-weight: 600;
+}
+
+/* Styled Card */
+.styled-card {
+  width: 100%;
+  max-width: 600px;
+  padding: 30px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  background-color: #fff;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Hover effect for card */
+.styled-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Media Queries for Responsive Design */
+
+/* For tablets and smaller screens */
+@media (max-width: 768px) {
+  .header-profile {
+      font-size: 28px;  /* Reduce font size for smaller screens */
   }
-  
+
   .content-profile {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 30px;
+      padding: 20px; /* Reduce padding */
+      flex-direction: column;  /* Stack content vertically on smaller screens */
   }
-  
+
   .label {
-    color: #555;
-    font-size: 16px;
-    margin-bottom: 10px;
-    display: block;
-    font-weight: 600;
+      font-size: 14px;  /* Reduce label font size */
   }
-  
+
   .styled-card {
-    width: 100%;
-    max-width: 600px;
-    padding: 30px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    border-radius: 16px;
-    background-color: #fff;
-    transition: box-shadow 0.3s ease-in-out;
+      padding: 20px;  /* Reduce padding */
   }
-  
-  .styled-card:hover {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* For mobile screens */
+@media (max-width: 480px) {
+  .header-profile {
+      font-size: 24px;  /* Reduce font size further for mobile */
+      letter-spacing: 1px; /* Reduce letter spacing */
   }
-  
+
+  .content-profile {
+      padding: 15px;  /* Even smaller padding for mobile */
+      flex-direction: column;  /* Ensure content is stacked */
+  }
+
+  .label {
+      font-size: 12px;  /* Further reduce label font size */
+  }
+
+  .styled-card {
+      padding: 15px;  /* Further reduce padding */
+  }
+}
+
+/* For very small screens (320px or smaller) */
+@media (max-width: 320px) {
+  .header-profile {
+      font-size: 20px;  /* Further reduce font size for very small screens */
+      letter-spacing: 0.8px; /* Adjust letter spacing */
+  }
+
+  .content-profile {
+      padding: 10px;  /* Reduce padding more for very small screens */
+      flex-direction: column;  /* Stack content */
+  }
+
+  .label {
+      font-size: 10px;  /* Make label font size smaller */
+  }
+
+  .styled-card {
+      padding: 10px;  /* Reduce padding */
+  }
+}

@@ -1,4 +1,3 @@
-
 .dashboard-container {
   padding: 20px;
   background-color: #f4f4f9;
@@ -77,6 +76,7 @@
   background-color: #e0f7fa;
 }
 
+/* Responsive styling from 768px to 320px */
 @media (max-width: 768px) {
   .dashboard-cards {
     flex-direction: column;
@@ -87,5 +87,68 @@
     width: 90%;
     margin-bottom: 20px;
   }
+
+  .dashboard-title {
+    font-size: 2rem;
+  }
+
+  .card-value {
+    font-size: 1.5rem;
+  }
 }
 
+/* Further adjustments for screens below 480px (more compact for very small screens) */
+@media (max-width: 480px) {
+  .card {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .dashboard-title {
+    font-size: 1.8rem;
+  }
+
+  .card-value {
+    font-size: 1.2rem;
+  }
+
+  .card-icon {
+    font-size: 25px;
+  }
+
+  .card-title {
+    font-size: 1.2rem;
+  }
+
+  .card-header {
+    margin-bottom: 10px;
+  }
+}
+
+/* Additional styling for very small screens (max-width: 320px) */
+@media (max-width: 320px) {
+  .card {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .dashboard-title {
+    font-size: 1.6rem;
+  }
+
+  .card-value {
+    font-size: 1.1rem;
+  }
+
+  .card-icon {
+    font-size: 20px;
+  }
+
+  .card-title {
+    font-size: 1rem;
+  }
+
+  .card-header {
+    margin-bottom: 8px;
+  }
+}
