@@ -301,3 +301,24 @@ button, .ant-btn {
         height: auto;
     }
 }
+
+.wrapper-style-description {
+    padding: 20px;
+    background-color: #e3e2e2;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.wrapper-style-description h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.wrapper-style-description p {
+    font-size: 14px;
+    color: #272626;
+    line-height: 1.6;
+}

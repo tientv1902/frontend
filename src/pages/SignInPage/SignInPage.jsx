@@ -32,7 +32,6 @@ const SignInPage = () => {
       const res = await UserService.getDetailsUser(id, token);
       dispatch(updateUser({ ...res?.data, access_token: token }));
   
-      // Load cart for logged in user from localStorage
       const userCart = JSON.parse(localStorage.getItem(`cart_${id}`)) || [];
       dispatch(loadCartForUser({ user: id, orderItems: userCart }));
     };
@@ -122,7 +121,6 @@ const SignInPage = () => {
         throw new Error("User data or access token is missing");
       }
     } catch (error) {
-      console.error("Google login error:", error);
       notification.error({
         message: 'Login Failed',
         description: 'Google Sign In Failed',

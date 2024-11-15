@@ -57,8 +57,6 @@ const OrderTable = ({ orders = [], isLoading = false }) => {
       loading={isLoading}
       scroll={{ x: 'max-content' }}
       pagination={{ pageSize: 5,
-        showSizeChanger: true,
-        pageSizeOptions: ['5', '10', '15', '20'],
         responsive: true, }}
     />
   );

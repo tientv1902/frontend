@@ -182,8 +182,13 @@ const ProductDetailsComponent = () => {
                             onClick={handleAddToCart}
                         />
                     </div>
+                    
                 </Col>
             </Row>
+            <div style={{ marginTop: '20px' }} className="wrapper-style-description">
+                <h3>Description</h3>
+                <p>{productDetails?.description || "No description available."}</p>
+            </div>
         </Loading>
     );
 };

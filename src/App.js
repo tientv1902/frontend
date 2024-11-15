@@ -56,8 +56,6 @@ function App() {
   }, function (error) {
     return Promise.reject(error);
   });
-
-
   
 
   return (
