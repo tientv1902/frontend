@@ -30,7 +30,7 @@ const CartComponent = (props) => {
             <StarFilled key={index} className="rating-icon" />
           ))}
         </span>
-        <span className="style-text-sell"> | Selled {selled || 1000}+</span>
+        <span className="style-text-sell"> | Selled {selled || 0}+</span>
       </div>
       <div className="price-text">
         <span>{price?.toLocaleString()}</span>
